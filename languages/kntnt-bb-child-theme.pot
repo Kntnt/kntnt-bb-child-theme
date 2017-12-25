@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 18:26+0000\n"
+"POT-Creation-Date: 2017-12-25 21:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/"
 
 #. Name of the theme
-msgid "Kntnt BB Child Theme"
+msgid "Kntnt's Child Theme of Beaver Bulder Theme"
 msgstr ""
 
 #. Description of the theme

@@ -47,17 +47,6 @@ add_filter('fl_less_vars', function($vars) {
 
 });
 
-// Create files that allows customization of the thee without conflict with
-// this child theme.
-add_action('after_switch_theme', function($name) {
-  foreach (['css', 'js', 'php'] as $suffix) {
-    $filename = FL_CHILD_THEME_DIR . '/custom/custom.' . $suffix;
-    if (!file_exists($filename)) {
-      file_put_contents($filename, '');
-    }    
-  }
-});
-
 // Load custom.css and custom.js
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_script('kntnt-bb-child-theme-custom-js', FL_CHILD_THEME_URL .  '/custom/custom.js', ['jquery'], '1.0', true);
