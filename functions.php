@@ -14,7 +14,15 @@ define('FL_CHILD_THEME_URL', get_stylesheet_directory_uri());
 
 // Include `responsive-fonts.less`, which provides for responsive font sizes.
 add_filter('fl_theme_compile_less_paths', function($paths) {
-  $paths[] = FL_CHILD_THEME_DIR . '/responsive-fonts.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/more.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/responsive-fonts.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/wordpress.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/bootstrap.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/bb-theme.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/bb-page-builder.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/content.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/utilities.less';
+  $paths[] = FL_CHILD_THEME_DIR . '/less/print.less';
   return $paths;
 });
 
