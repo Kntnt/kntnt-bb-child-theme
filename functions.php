@@ -10,7 +10,4 @@ namespace Kntnt\BB_Child_Theme;
 define('Kntnt\BB_Child_Theme\THEME_DIR', get_stylesheet_directory());
 define('Kntnt\BB_Child_Theme\THEME_URI', get_stylesheet_uri());
 
-require THEME_DIR . '/classes/class-wordpress.php';
-require THEME_DIR . '/classes/class-bb-theme.php';
-require THEME_DIR . '/classes/class-bb-builder.php';
-require THEME_DIR . '/classes/class-custom.php';
+require THEME_DIR . '/classes/class-theme.php';

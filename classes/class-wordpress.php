@@ -2,8 +2,6 @@
 
 namespace Kntnt\BB_Child_Theme;
 
-new WordPress();
-
 class WordPress {
 
   public function __construct() {
@@ -11,6 +9,10 @@ class WordPress {
   }
 
   public function run() {
+
+
+    // Load WordPress specific LESS
+    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 11);
 
     // Don't change Wordpress to WordPress.
     remove_filter('the_title', 'capital_P_dangit', 11);
@@ -31,6 +33,11 @@ class WordPress {
 
   }
   
+  public function set_less_paths($paths) {
+    $paths[] = THEME_DIR . '/less/wordpress.less';
+    return $paths;
+  }
+
   public function echo_referrer() {
     echo '<meta name="referrer" content="origin">';
   }
