@@ -13,6 +13,11 @@ class BB_Theme {
     // Load Beaver Builder Theme specific LESS
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 12);
 
+    // BB THeme comes with Magnific popup. By loading this script, its usage
+    // is extended to also include youtube.com, vimeo.com, maps.google.com
+    // (predefined), and youtu.be, ted.com.
+    add_action('wp_enqueue_scripts', [$this, 'lightbox_script']);
+
     // Set the default width and height of embeds.
     // See also https://codex.wordpress.org/Content_Width.
     add_filter('embed_defaults', [$this, 'set_embed_default']);
@@ -66,5 +71,11 @@ class BB_Theme {
       }
     }
   }
+  
+  public function lightbox_script() {
+error_log(THEME_URI .  '/js/lightbox.js');
+    wp_enqueue_script('kntnt-bb-child-theme-lightbox', THEME_URI .  '/js/lightbox.js', ['jquery', 'jquery-magnificpopup'], wp_get_theme()->get('Version'), false);
+  }
+
 
 }
