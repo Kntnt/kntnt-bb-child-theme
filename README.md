@@ -31,9 +31,7 @@ Font families, colors, shade of grays and shadows used by the child theme are de
 
 - `@primary-color` — defaults to the the accent color set in Customizer
 
-- `@secondary-color` — defaults to the the accent color set in Customizer +120° in hue.
-
-- `@tertiary-color` — defaults to the the accent color set in Customizer -120° in hue.
+- `@secondary-color` — defaults to the the hover accent color
 
 - `@black` — defaults to `#080808`
 
