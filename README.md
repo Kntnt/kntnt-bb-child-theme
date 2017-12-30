@@ -27,11 +27,11 @@ Font families, colors, shade of grays and shadows used by the child theme are de
 
 - `@service-font` — defaults to the heading font family set in Customizer
 
-- `@monospace-font` — defaults to [Inconsolata](https://fonts.google.com/specimen/Inconsolata) which the child theme inlcudes
+- `@monospace-font` — defaults to `monospace`.
 
 - `@primary-color` — defaults to the the accent color set in Customizer
 
-- `@secondary-color` — defaults to the the hover accent color
+- `@secondary-color` — defaults to the the hover accent color set in Customizer
 
 - `@black` — defaults to `#080808`
 
