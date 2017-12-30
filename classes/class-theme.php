@@ -91,8 +91,7 @@ class Theme {
     // Additional LESS variables used by LESS-files included by this theme.
     $vars['service-font'] = '@text-font';
     $vars['monospace-font'] = 'monospace';
-    $vars['secondary-accent-color'] = 'spin(@accent-color, 120)';
-    $vars['tertiary-accent-color'] = 'spin(@accent-color, -120)';
+    $vars['secondary-accent-color'] = '@accent-color-hover';
     $vars['black'] = '#080808';
     $vars['almost-black'] = '#333';
     $vars['dark-gray'] = '#555';
