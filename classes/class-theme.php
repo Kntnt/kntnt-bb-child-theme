@@ -69,7 +69,7 @@ class Theme {
     // Use the gloabal break points of Beaver Bulider's Page Builder
     // as break points for responsive fonts.
     if (class_exists('FLBuilderModel')) {
-      $global_settings = FLBuilderModel::get_global_settings();
+      $global_settings = \FLBuilderModel::get_global_settings();
       $vars['medium_breakpoint'] = $global_settings->medium_breakpoint . 'px';
       $vars['small_breakpoint'] = $global_settings->responsive_breakpoint . 'px';
     }
