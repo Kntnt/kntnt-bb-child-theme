@@ -4,14 +4,20 @@ A WordPress child theme to Beaver Builder Theme.
 
 ## Description
 
-[Beaver Builder](https://www.wpbeaverbuilder.com/) has a really good base theme called *[Beaver Builder Theme](https://www.wpbeaverbuilder.com/wordpress-framework-theme/)* , which is included in the Beaver Builder's *Pro* and *Agency* packages. This child theme adds some minor but important improvements to Beaver Builder Theme, including following features:
+Kntnt's Beaver Builder Child Theme is an advanced child theme of *[Beaver Builder Theme](https://www.wpbeaverbuilder.com/wordpress-framework-theme/)*, which is included in the Beaver Builder's *Pro* and *Agency* packages.
 
+## Features
+
+Kntnt's Beaver Builder Child Theme provides many features, including:
+
+* Responsive font sizes.
+* Beaver Builder Page Builder's breakpoints are used if present.
 * Featured image also on pages (in addition to posts).
 * Featured image shows caption if provided.
 * Featured images links to its original image. Thus it is shown in Beaver Builder's lightbox when clicked on.
-* Beaver Builder Page Builder's breakpoints are used if present.
-* Responsive font sizes.
-* Many small but important improvements.
+* Removes from Customizer everything that can be replaced with *[Beaver Themer](https://www.wpbeaverbuilder.com/beaver-themer/)* if the plugin is active.
+
+## For developers
 
 Don't edit `style.css` or `function.php`. Edit instead following files:
 

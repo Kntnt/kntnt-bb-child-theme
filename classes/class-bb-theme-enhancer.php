@@ -10,7 +10,7 @@ class BB_Theme_Enhancer {
 
   public function run() {
 
-    // Load Beaver Builder Theme specific LESS
+    // Load Beaver Builder Theme specific Less.
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 12);
 
     // BB Theme comes with Magnific popup. By loading this script, its usage
@@ -28,16 +28,14 @@ class BB_Theme_Enhancer {
     // is loaded. Wuth this hack we also have bold, italic and bold italic.
     add_action('wp_print_styles', [$this, 'fix_fonts']);
 
-    // Change minimum content width in Customizer.
-    add_action('customize_register', function ($customizer) {
-      $customizer->controls()['fl-content-width']->choices['min'] = 600;
-    }, 1e6);
-
     // Change avatar size.
     add_filter('author_box_avatar_size', function($size) { return 96; });
     
     // HTML5 support.
     add_theme_support('html5', [ 'gallery', 'caption' ]);
+
+    // Change minimum content width in Customizer.
+    add_action('customize_register', [$this, 'modify_customizer'], 1e9);
 
   }
 
@@ -76,5 +74,24 @@ class BB_Theme_Enhancer {
     wp_enqueue_script('kntnt-bb-child-theme-lightbox', THEME_URI .  '/js/lightbox.js', ['jquery', 'jquery-magnificpopup'], wp_get_theme()->get('Version'), false);
   }
 
+  public function modify_customizer($customizer) {
+
+      // Change minimum content width in Customizer.
+      $customizer->controls()['fl-content-width']->choices['min'] = 600;
+ 
+      // Remove all controls, sections and panels from Customizer corresponding
+      // to features that can be replaced by Beaver Themer if the filter
+      // `kntnt_bb_child_theme_for_themer` returns `true`. By default
+      // the filter returns true if Beaver Themer is activated.
+      if ( apply_filters( 'kntnt_bb_child_theme_for_themer', defined( 'FL_THEME_BUILDER_VERSION' ) ) ) {
+        $customizer->remove_panel( 'fl-header' );
+        $customizer->remove_panel( 'fl-footer' );
+        $customizer->remove_section( 'fl-content-blog' );
+        $customizer->remove_section( 'fl-content-archives' );
+        $customizer->remove_section( 'fl-content-posts' );
+        $customizer->remove_section( 'fl-content-woo' );         
+      }
+
+  }
 
 }
