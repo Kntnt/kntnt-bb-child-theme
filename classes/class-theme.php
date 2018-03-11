@@ -23,13 +23,13 @@ class Theme {
     add_filter('fl_less_vars', [$this, 'set_less_variables']);
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 10);
 
-    // WordPress "improvements"
+    // WordPress improvements
     new WordPress();
 
-    // Beaver Builder Theme "improvements"
+    // Beaver Builder Theme improvements
     new BB_Theme();
 
-    // Beaver Builder Page Builder "improvements"
+    // Beaver Builder Page Builder improvements
     new BB_Builder();
 
     // Include customizations
