@@ -2,7 +2,7 @@
 
 namespace Kntnt\BB_Child_Theme;
 
-class BB_Builder {
+class BB_Builder_Enhancer {
 
   public function __construct() {
     $this->run();

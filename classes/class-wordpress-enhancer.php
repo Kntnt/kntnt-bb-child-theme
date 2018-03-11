@@ -2,7 +2,7 @@
 
 namespace Kntnt\BB_Child_Theme;
 
-class WordPress {
+class WordPress_Enhancer {
 
   public function __construct() {
     $this->run();

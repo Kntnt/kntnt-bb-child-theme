@@ -2,9 +2,9 @@
 
 namespace Kntnt\BB_Child_Theme;
 
-include THEME_DIR . '/classes/class-wordpress.php';
-include THEME_DIR . '/classes/class-bb-theme.php';
-include THEME_DIR . '/classes/class-bb-builder.php';
+include THEME_DIR . '/classes/class-wordpress-enhancer.php';
+include THEME_DIR . '/classes/class-bb-theme-enhancer.php';
+include THEME_DIR . '/classes/class-bb-builder-enhancer.php';
 
 new Theme();
 
@@ -16,28 +16,23 @@ class Theme {
 
   public function run() {
 
-    // Add each preset found in the presets directory
+    // Create theme enhancers for WordPress, BB Theme and BB Builder.
+    new WordPress_Enhancer();
+    new BB_Theme_Enhancer();
+    new BB_Builder_Enhancer();
+
+    // Replace Beaver Builder's presets with those found in the presets
+    // directory, set less variabels and load less files.
     add_action('after_setup_theme', [$this, 'replace_presets'], 11);
-
-    // Load LESS variables and files
     add_filter('fl_less_vars', [$this, 'set_less_variables']);
-    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 10);
+    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 10);    
 
-    // WordPress improvements
-    new WordPress();
-
-    // Beaver Builder Theme improvements
-    new BB_Theme();
-
-    // Beaver Builder Page Builder improvements
-    new BB_Builder();
-
-    // Include customizations
-     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_before'], 9);
-     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_after'], 20);
-     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-     add_action('wp_enqueue_scripts', [$this, 'enqueue_fonts']);
-     include THEME_DIR . '/custom/function.php';
+    // Load custom/*
+    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_before'], 1);
+    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_after'], 9999);
+    add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    add_action('wp_enqueue_scripts', [$this, 'enqueue_fonts']);
+    include THEME_DIR . '/custom/function.php';
 
   }
 
@@ -106,18 +101,6 @@ class Theme {
 
   }
 
-  public function enqueue_scripts() {
-    wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI .  '/custom/custom.js', ['jquery'], wp_get_theme()->get('Version'), true);
-  }
-  
-  public function enqueue_fonts() {
-    $fonts = [];
-    include THEME_DIR . '/custom/fonts.php';
-    foreach ($fonts as $font => $variants) {
-      wp_enqueue_style("kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants");
-    }
-  }
-
   public function set_less_paths_before($paths) {
     $paths[] = THEME_DIR . '/custom/setting.less';
     return $paths;
@@ -136,4 +119,16 @@ class Theme {
     return $paths;
   }
   
+  public function enqueue_scripts() {
+    wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI .  '/custom/custom.js', ['jquery'], wp_get_theme()->get('Version'), true);
+  }
+  
+  public function enqueue_fonts() {
+    $fonts = [];
+    include THEME_DIR . '/custom/fonts.php';
+    foreach ($fonts as $font => $variants) {
+      wp_enqueue_style("kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants");
+    }
+  }
+
 }
