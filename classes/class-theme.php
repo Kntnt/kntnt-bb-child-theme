@@ -5,6 +5,7 @@ namespace Kntnt\BB_Child_Theme;
 include THEME_DIR . '/classes/class-wordpress-enhancer.php';
 include THEME_DIR . '/classes/class-bb-theme-enhancer.php';
 include THEME_DIR . '/classes/class-bb-builder-enhancer.php';
+include THEME_DIR . '/classes/class-image-formats.php';
 
 new Theme();
 
@@ -20,6 +21,7 @@ class Theme {
     new WordPress_Enhancer();
     new BB_Theme_Enhancer();
     new BB_Builder_Enhancer();
+    new Image_Formats();
 
     // Replace Beaver Builder's presets with those found in the presets
     // directory, set less variabels and load less files.
