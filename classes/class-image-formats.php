@@ -10,6 +10,7 @@ class Image_Formats {
     $this->setup_image_formats();
     add_filter('image_size_names_choose', array( $this, 'update_ui' ), 9999);
     add_filter('image_resize_dimensions', [$this, 'crop_with_bleed'], 10, 6);
+    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 14);
   }
 
   public static function image_formats() {
@@ -70,24 +71,17 @@ class Image_Formats {
       'crop' => true
     ];
 
-    $image_formats['medium_parallax'] = [
-      'name' => __('Small parallax banner', 'kntnt-bb-child-theme'),
+    $image_formats['extra_large_banner'] = [
+      'name' => __('Extra large banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 200,
+      'height' => 800,
       'crop' => true
     ];
 
-    $image_formats['medium_large_parallax'] = [
-      'name' => __('Medium parallax banner', 'kntnt-bb-child-theme'),
+    $image_formats['extra_extra_large_banner'] = [
+      'name' => __('Extra extra large banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 400,
-      'crop' => true
-    ];
-
-    $image_formats['large_parallax'] = [
-      'name' => __('Large parallax banner', 'kntnt-bb-child-theme'),
-      'width' => 1920,
-      'height' => 600,
+      'height' => 1200,
       'crop' => true
     ];
 
@@ -133,6 +127,11 @@ class Image_Formats {
 
     return array(0, 0, (int) $src_x, (int) $src_y, (int) $dst_w, (int) $dst_h, (int) $crop_w, (int) $crop_h);
 
+  }
+  
+  public function set_less_paths($paths) {
+    $paths[] = THEME_DIR . '/less/image-formats.less';
+    return $paths;
   }
 
   private function setImageSize($slug, $width, $height, $crop, $name) {

@@ -1,0 +1,20 @@
+/*
+ * Makes images of an image format with `_banner` as part of its machine
+ * readable name to breakout of its container and span the full width of
+ * the screen.
+ *
+ * Notice that expressions in `calc` that should not be caclulated by Less
+ * are escaped with ~"…".
+ *
+ * DON'T EDIT THIS FILE. INSTEAD, EDIT THE FILES IN THE CUSTOM DIRECTORY.
+*/
+
+@media screen {
+  p img[class*="wp-image-"][class*='_banner'],
+  figure.wp-caption img[class*="wp-image-"][class*='_banner'] {
+    max-width: 100vw !important;
+    width: 100vw;
+    margin-left: calc(~"50% - 50vw");
+    box-shadow: none;
+  }
+}
