@@ -10,7 +10,7 @@ class BB_Builder_Enhancer {
 
   public function run() {
     
-    // Load Beaver Builder Page Builder specific LESS
+    // Load Beaver Builder Page Builder specific Less.
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 13);
 
     // Prevents redirection of pagination with trailing slash. Necessary to

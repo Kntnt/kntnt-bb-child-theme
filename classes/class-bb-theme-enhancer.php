@@ -37,11 +37,17 @@ class BB_Theme_Enhancer {
     // Change minimum content width in Customizer.
     add_action('customize_register', [$this, 'modify_customizer'], 1e9);
 
-  }
+    // Add shortcode for rendering search icon. Use it as a menu item (see
+    // https://github.com/TBarregren/kntnt-shortcodes-in-menu) when
+    // the themes header is replaced with Beaver Themer.
+    add_shortcode('bb-nav-search', [$this, 'bb_nav_search']);
 
+  }
+  
   public function set_less_paths($paths) {
     $paths[] = THEME_DIR . '/less/bootstrap.less';
     $paths[] = THEME_DIR . '/less/bb-theme.less';
+    $paths[] = THEME_DIR . '/less/bb-nav-search.less';
     return $paths;
   }
 
@@ -92,6 +98,12 @@ class BB_Theme_Enhancer {
         $customizer->remove_section( 'fl-content-woo' );         
       }
 
+  }
+
+  public function bb_nav_search($atts) {
+    ob_start();
+    get_template_part( 'includes/nav-search' );
+    return ob_get_clean();
   }
 
 }
