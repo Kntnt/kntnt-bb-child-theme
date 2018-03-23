@@ -437,9 +437,13 @@ div.fl-rich-text table {
   text-align: left;
 }
 
+body.page:not(.fl-builder) table thead td,
+body.single:not(.fl-builder) table thead td,
+div.fl-rich-text table thead td,
 body.page:not(.fl-builder) table th,
 body.single:not(.fl-builder) table th,
 div.fl-rich-text table th {
+  font-family: @heading-font;
   font-weight: 600;
   color: @almost-white;
   background: @dark-gray;
@@ -502,24 +506,24 @@ div.fl-rich-text table caption {
 
 /* Blockquotes */
 
-blockquote {
+body blockquote {
   padding: 0 1em;
-  border-left: 5x solid @almost-light-gray;
+  border-left: 5px solid @mid-gray;
   font-style: italic;
   font-size: @small-text-size;
   overflow: hidden; /* Play nice with floats */
 }
 
-blockquote cite,
-blockquote footer {
+body blockquote cite,
+body blockquote footer {
   display: block;
   padding: 0.2em 0 0 0;
   text-align: right;
   font-style: italic;
 }
 
-blockquote cite:before,
-blockquote footer:before {
+body blockquote cite:before,
+body blockquote footer:before {
   content: '\2014 \00A0';
 }
 

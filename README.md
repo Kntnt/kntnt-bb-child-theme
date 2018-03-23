@@ -12,9 +12,6 @@ Kntnt's Beaver Builder Child Theme provides many features, including:
 
 * Responsive font sizes.
 * Beaver Builder Page Builder's breakpoints are used if present.
-* Featured image also on pages (in addition to posts).
-* Featured image shows caption if provided.
-* Featured images links to its original image. Thus it is shown in Beaver Builder's lightbox when clicked on.
 * Removes from Customizer everything that can be replaced with *[Beaver Themer](https://www.wpbeaverbuilder.com/beaver-themer/)* if the plugin is active.
 
 ## For developers
