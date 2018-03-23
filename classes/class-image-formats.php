@@ -53,33 +53,26 @@ class Image_Formats {
     $image_formats['medium_banner'] = [
       'name' => __('Small banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 200,
+      'height' => 300,
       'crop' => true
     ];
 
     $image_formats['medium_large_banner'] = [
       'name' => __('Medium banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 400,
+      'height' => 600,
       'crop' => true
     ];
 
     $image_formats['large_banner'] = [
       'name' => __('Large banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 600,
+      'height' => 900,
       'crop' => true
     ];
 
     $image_formats['extra_large_banner'] = [
       'name' => __('Extra large banner', 'kntnt-bb-child-theme'),
-      'width' => 1920,
-      'height' => 800,
-      'crop' => true
-    ];
-
-    $image_formats['extra_extra_large_banner'] = [
-      'name' => __('Extra extra large banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
       'height' => 1200,
       'crop' => true

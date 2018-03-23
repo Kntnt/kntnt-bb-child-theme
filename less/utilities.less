@@ -5,16 +5,21 @@
 */
 
 
-/* Remove shadow effect (if used by default) */
+/* Remove shadow effect (if enabled) */
 .no-shadow {
   box-shadow: none !important;
+}
+
+/* Add shadow effect (if enabled) */
+.no-shadow {
+  box-shadow: @box-shadow !important;
 }
 
 
 /* Footnote */
 
 .footnote {
-  font-size: 0.584em;
+  font-size: @service-text-size;
 }
 
 

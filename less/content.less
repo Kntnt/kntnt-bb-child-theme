@@ -11,26 +11,31 @@ p {
   margin-bottom: 1em;
 }
 
+code,
+kbd,
+pre,
+samp {
+  background-color: @almost-light-gray;
+  font-family: @monospace-font;
+  font-size: 90%;
+}
+
+code {
+  color: @accent-color;
+  white-space: pre-wrap;
+}
+
 pre {
   margin: 48px 0;
   padding: 12px 24px;
-  background-color: @almost-light-gray;
   box-shadow: @box-shadow;
-  font-family: @monospace-font;
-  font-size: 14px;
+  font-size: @pre-text-size;
   white-space: pre-wrap;
   clear: both; /* Escape floats */
 }
 
-code {
-  background-color: @almost-light-gray;
-  color: @accent-color;
-  font-size: 90%;
-  white-space: pre-wrap;
-}
-
 pre code {
-  font-size: inherit;
+  font-size: @pre-text-size;
 }
 
 
@@ -232,7 +237,7 @@ figure.wp-caption img[class*="wp-image-"].size-tall_parallax {
 figcaption {
   padding-top: 0.5em;
   font-family: @service-font;
-  font-size: 14px;
+  font-size: @service-text-size;
   text-align: left;
   color: @dark-gray;
 }
@@ -374,7 +379,6 @@ ol {
   margin: 1em 0 1em 2em;
   padding: 0;
   list-style-position: outside;
-  font-size: 90%;
 }
 
 li {
@@ -397,7 +401,6 @@ ol ol {
 dl {
   margin: 1em 0 0 1em;
   padding: 0;
-  font-size: 90%;
   overflow-x: hidden; /* Play nice with floats */
 }
 
@@ -430,7 +433,7 @@ div.fl-rich-text table {
   margin: 48px auto;
   box-shadow: @box-shadow;
   font-family: @service-font;
-  font-size: 18px;
+  font-size: @small-text-size;
   text-align: left;
 }
 
@@ -493,7 +496,7 @@ div.fl-rich-text table caption {
   margin-bottom: 0.2em;
   padding: 0;
   color: @dark-gray;
-  font-size: 14px;
+  font-size: @service-text-size;
 }
 
 
@@ -501,8 +504,9 @@ div.fl-rich-text table caption {
 
 blockquote {
   padding: 0 1em;
-  border: none;
-  font-size: 90%;
+  border-left: 5x solid @almost-light-gray;
+  font-style: italic;
+  font-size: @small-text-size;
   overflow: hidden; /* Play nice with floats */
 }
 
@@ -527,7 +531,7 @@ button,
 input[type=button],
 input[type=submit] {
   font-family: @service-font;
-  font-size: 14px;
+  font-size: @service-text-size;
   font-weight: 600;
   line-height: 1.0;
 }
@@ -538,7 +542,7 @@ input[type=submit] {
 label {
   color: @almost-black;
   font-family: @service-font;
-  font-size: 14px;
+  font-size: @service-text-size;
   font-weight: 600;
   line-height: 1.0;
 }
@@ -556,7 +560,7 @@ input[type=number],
 input[type=search] {
   color: @almost-black;
   font-family: @service-font;
-  font-size: 18px;
+  font-size: @small-text-size;
   font-weight: 400;
   line-height: 1.6;
 }

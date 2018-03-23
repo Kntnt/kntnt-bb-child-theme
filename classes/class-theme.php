@@ -87,7 +87,10 @@ class Theme {
 
     // Additional LESS variables used by LESS-files included by this theme.
     $vars['service-font'] = '@text-font';
-    $vars['monospace-font'] = 'monospace';
+    $vars['monospace-font'] = 'Menlo, Monaco, Consolas, "Andale Mono WT", "Andale Mono", monospace';
+    $vars['small-text-size'] = '18px';
+    $vars['service-text-size'] = '14px';
+    $vars['pre-text-size'] = '14px';
     $vars['secondary-accent-color'] = '@accent-color-hover';
     $vars['black'] = '#080808';
     $vars['almost-black'] = '#333';
@@ -117,12 +120,12 @@ class Theme {
   }
 
   public function set_less_paths_after($paths) {
-    $paths[] = THEME_DIR . '/custom/custom.css';
+    $paths[] = THEME_DIR . '/custom/style.css';
     return $paths;
   }
   
   public function enqueue_scripts() {
-    wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI .  '/custom/custom.js', ['jquery'], wp_get_theme()->get('Version'), true);
+    wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI .  '/custom/script.js', ['jquery'], wp_get_theme()->get('Version'), true);
   }
   
   public function enqueue_fonts() {
