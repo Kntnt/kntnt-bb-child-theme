@@ -5,4 +5,5 @@
 div.pull blockquote {
   border-left-color: @mid-gray;
   font-family: @heading-font;
+  color: @accent-color;
 }

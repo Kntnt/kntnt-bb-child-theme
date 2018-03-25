@@ -25,29 +25,29 @@ class Image_Formats {
     $image_formats['medium'] = [
       'name' => __('Small', 'kntnt-bb-child-theme'),
       'width' => 300,
-      'height' => 9999,
-      'crop' => false
+      'height' => 200,
+      'crop' => true
     ];
 
     $image_formats['medium_large'] = [
       'name' => __('Medium', 'kntnt-bb-child-theme'),
       'width' => 600,
-      'height' => 9999,
-      'crop' => false
+      'height' => 400,
+      'crop' => true
     ];
 
     $image_formats['large'] = [
       'name' => __('Large', 'kntnt-bb-child-theme'),
       'width' => 900,
-      'height' => 9999,
-      'crop' => false
+      'height' => 600,
+      'crop' => true
     ];
 
     $image_formats['extra_large'] = [
       'name' => __('Extra large', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 9999,
-      'crop' => false
+      'height' => 1280,
+      'crop' => true
     ];
 
     $image_formats['medium_banner'] = [

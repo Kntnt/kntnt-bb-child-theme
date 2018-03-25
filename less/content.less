@@ -17,11 +17,11 @@ pre,
 samp {
   background-color: @almost-light-gray;
   font-family: @monospace-font;
-  font-size: 90%;
+  font-size: 87.5%;
 }
 
 code {
-  color: @accent-color;
+  color: unset; /* Unset Bootstrap's color */
   white-space: pre-wrap;
 }
 
@@ -435,6 +435,20 @@ div.fl-rich-text table {
   font-family: @service-font;
   font-size: @small-text-size;
   text-align: left;
+}
+
+body.page:not(.fl-builder) table[class*="alignleft"],
+body.single:not(.fl-builder) table[class*="alignleft"],
+div.fl-rich-text table[class*="alignleft"] {
+  margin-top: 0;
+  margin-right: 2em;
+}
+
+body.page:not(.fl-builder) table[class*="alignright"],
+body.single:not(.fl-builder) table[class*="alignright"],
+div.fl-rich-text table[class*="alignright"] {
+  margin-top: 0;
+  margin-left: 1em;
 }
 
 body.page:not(.fl-builder) table thead td,
