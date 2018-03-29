@@ -152,15 +152,15 @@ Notice that this theme includes following CSS, that targets images
 conatining `_banner` in their machine name to make them breakout of their
 containers and span the full width of the screen.
 
-  @media screen {
-    p img[class*="wp-image-"][class*='_banner'],
-    figure.wp-caption img[class*="wp-image-"][class*='_banner'] {
-      max-width: 100vw !important;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      box-shadow: none;
+    @media screen {
+      p img[class*="wp-image-"][class*='_banner'],
+      figure.wp-caption img[class*="wp-image-"][class*='_banner'] {
+        max-width: 100vw !important;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        box-shadow: none;
+      }
     }
-  }
 
 Notice that this theme modify WordPress crop to use <a href="https://en.wikipedia.org/wiki/Bleed_(printing)">bleed</a>.
 
