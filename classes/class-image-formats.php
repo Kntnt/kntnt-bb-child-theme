@@ -22,15 +22,29 @@ class Image_Formats {
       'crop' => true
     ];
 
-    $image_formats['medium'] = [
+    $image_formats['small'] = [
       'name' => __('Small', 'kntnt-bb-child-theme'),
+      'width' => 300,
+      'height' => 9999,
+      'crop' => false
+    ];
+
+    $image_formats['small_crop'] = [
+      'name' => __('Small (crop)', 'kntnt-bb-child-theme'),
       'width' => 300,
       'height' => 200,
       'crop' => true
     ];
 
-    $image_formats['medium_large'] = [
+    $image_formats['medium'] = [
       'name' => __('Medium', 'kntnt-bb-child-theme'),
+      'width' => 600,
+      'height' => 9999,
+      'crop' => false
+    ];
+
+    $image_formats['medium_large'] = [
+      'name' => __('Medium (crop)', 'kntnt-bb-child-theme'),
       'width' => 600,
       'height' => 400,
       'crop' => true
@@ -39,25 +53,25 @@ class Image_Formats {
     $image_formats['large'] = [
       'name' => __('Large', 'kntnt-bb-child-theme'),
       'width' => 900,
-      'height' => 600,
-      'crop' => true
+      'height' => 9999,
+      'crop' => false
     ];
 
     $image_formats['extra_large'] = [
       'name' => __('Extra large', 'kntnt-bb-child-theme'),
       'width' => 1920,
-      'height' => 1280,
-      'crop' => true
+      'height' => 9999,
+      'crop' => false
     ];
 
-    $image_formats['medium_banner'] = [
+    $image_formats['small_banner'] = [
       'name' => __('Small banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
       'height' => 300,
       'crop' => true
     ];
 
-    $image_formats['medium_large_banner'] = [
+    $image_formats['medium_banner'] = [
       'name' => __('Medium banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
       'height' => 600,
@@ -85,7 +99,10 @@ class Image_Formats {
   public function setup_image_formats() {
 
     $image_formats = self::image_formats();
-    include THEME_DIR . '/custom/image-formats.php';  
+
+    if ( is_readable( THEME_DIR . '/custom/image-formats.php' ) ) {
+      include THEME_DIR . '/custom/image-formats.php';
+    }
 
     foreach ($image_formats as $slug => $format) {
       $this->setImageSize($slug, $format['width'], $format['height'], $format['crop'], $format['name']);

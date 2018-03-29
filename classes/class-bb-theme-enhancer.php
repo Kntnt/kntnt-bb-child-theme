@@ -52,8 +52,8 @@ class BB_Theme_Enhancer {
   }
 
   public function set_embed_default($defaults) {
-    $defaults['width'] = FLCustomizer::get_mods()['fl-content-width'];
-    $defaults['height'] = (int) round(FLCustomizer::get_mods()['fl-content-width'] * 2 / 3);
+    $defaults['width'] = \FLCustomizer::get_mods()['fl-content-width'];
+    $defaults['height'] = (int) round(\FLCustomizer::get_mods()['fl-content-width'] * 2 / 3);
     return $defaults;
   }
   

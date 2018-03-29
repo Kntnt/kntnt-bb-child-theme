@@ -1,9 +1,0 @@
-/* 
- * Here you can add CSS code that should be loaded with the theme.
- */
-
-div.pull blockquote {
-  border-left-color: @mid-gray;
-  font-family: @heading-font;
-  color: @accent-color;
-}

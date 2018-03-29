@@ -34,7 +34,9 @@ class Theme {
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_after'], 9999);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_fonts']);
-    include THEME_DIR . '/custom/function.php';
+    if ( is_readable( THEME_DIR . '/custom/function.php' ) ) {
+      include THEME_DIR . '/custom/function.php';
+    }
 
   }
 
@@ -105,9 +107,11 @@ class Theme {
     return $vars;
 
   }
-
+  
   public function set_less_paths_before($paths) {
-    $paths[] = THEME_DIR . '/custom/setting.less';
+    if ( is_readable( THEME_DIR . '/custom/setting.less' ) ) {
+      $paths[] = THEME_DIR . '/custom/setting.less';
+    }
     return $paths;
   }
 
@@ -120,19 +124,25 @@ class Theme {
   }
 
   public function set_less_paths_after($paths) {
-    $paths[] = THEME_DIR . '/custom/style.css';
+    if ( is_readable( THEME_DIR . '/custom/style.css' ) ) {
+      $paths[] = THEME_DIR . '/custom/setting.less';
+    }
     return $paths;
   }
   
   public function enqueue_scripts() {
-    wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI .  '/custom/script.js', ['jquery'], wp_get_theme()->get('Version'), true);
+    if ( is_readable( THEME_DIR . '/custom/script.js' ) ) {
+      wp_enqueue_script('kntnt-bb-child-theme-custom-js', THEME_URI . '/custom/script.js', ['jquery'], wp_get_theme()->get('Version'), true);
+    }
   }
   
   public function enqueue_fonts() {
-    $fonts = [];
-    include THEME_DIR . '/custom/fonts.php';
-    foreach ($fonts as $font => $variants) {
-      wp_enqueue_style("kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants");
+    if ( is_readable( THEME_DIR . '/custom/fonts.js' ) ) {
+      $fonts = [];
+      include THEME_DIR . '/custom/fonts.js';
+      foreach ($fonts as $font => $variants) {
+        wp_enqueue_style("kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants");
+      }
     }
   }
 
