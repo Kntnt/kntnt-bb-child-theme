@@ -34,8 +34,8 @@ class Theme {
     add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths_after'], 9999);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_fonts']);
-    if ( is_readable( THEME_DIR . '/custom/function.php' ) ) {
-      include THEME_DIR . '/custom/function.php';
+    if ( is_readable( THEME_DIR . '/custom/functions.php' ) ) {
+      include THEME_DIR . '/custom/functions.php';
     }
 
   }

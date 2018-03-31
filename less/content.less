@@ -12,8 +12,8 @@ p {
 }
 
 code,
-kbd,
 pre,
+kbd,
 samp {
   background-color: @almost-light-gray;
   font-family: @monospace-font;
@@ -36,6 +36,10 @@ pre {
 
 pre code {
   font-size: @pre-text-size;
+}
+
+kbd {
+  color: unset; /* Unset Bootstrap's color */
 }
 
 
