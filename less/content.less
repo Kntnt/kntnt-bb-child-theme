@@ -204,38 +204,6 @@ figure.wp-caption img[class*="wp-image-"] {
 }
 
 
-/* Banner images */
-
-body {
-  overflow-x: hidden;
-}
-
-p img[class*="wp-image-"].size-short_banner,
-p img[class*="wp-image-"].size-middle_banner,
-p img[class*="wp-image-"].size-tall_banner,
-p img[class*="wp-image-"].size-short_parallax,
-p img[class*="wp-image-"].size-middle_parallax,
-p img[class*="wp-image-"].size-tall_parallax,
-figure.wp-caption img[class*="wp-image-"].size-short_banner,
-figure.wp-caption img[class*="wp-image-"].size-middle_banner,
-figure.wp-caption img[class*="wp-image-"].size-tall_banner,
-figure.wp-caption img[class*="wp-image-"].size-short_parallax,
-figure.wp-caption img[class*="wp-image-"].size-middle_parallax,
-figure.wp-caption img[class*="wp-image-"].size-tall_parallax {
-  max-width: 100vw !important;
-  width: 100vw;
-  margin-left: calc(~"50% - 50vw");
-  box-shadow: none;
-}
-
-@media print {
-  img[class*="wp-image-"][class*="parallax"] {
-  height: auto !important;
-  padding: 0 !important;
-  }
-}
-
-
 /* Figure captions */
 
 figcaption {

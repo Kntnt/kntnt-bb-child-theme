@@ -22,7 +22,7 @@ Don't edit `style.css` or `function.php`. Edit instead following files. Each are
 * `custom/function.php` — for your own PHP code
 * `custom/image-formats.php` — for your own image formats
 * `custom/script.js`  — add your own JavaScript to be global included
-* `custom/setting.less` — override  Less variables used by theme
+* `custom/setting.less` — override  [Less](http://lesscss.org/) variables used by theme
 * `custom/style.css` — add your own CSS to be global included
 
 ### custom/fonts.php
@@ -146,29 +146,32 @@ override any of them.
 </tbody>
 </table>
 
+Notice that this theme modify how WordPress crop images: The image is scaled down to its minimum size completely covering the bounding box while maintaiing aspect ratio and keeping image center at the center of the bounding box. The *bleed*, i.e. the part of image outside the bounding box, is croped away. (WordPress default behaviour is to scale down the image to its maxium size fitting in the bounding box while maintaiing aspect ratio. This creates black bands above/under or left/right of the image is its aspect ratio differ from the bounding box.)
+
 Notice that the machine name is outputted as a CSS-class.
 
-Notice that this theme includes following CSS, that targets images
-conatining `_banner` in their machine name to make them breakout of their
-containers and span the full width of the screen.
+Notice that the banner formats are supposed to be used inside the shortcode `[pull banner image]…[/pull]` provided by [Kntnt's Pull Contet plugin](https://github.com/TBarregren/kntnt-pull-content). Alternatively, you can add following snippet to  `custom/style.php`:
 
-  @media screen {
-    p img[class*="wp-image-"][class*='_banner'],
-    figure.wp-caption img[class*="wp-image-"][class*='_banner'] {
-      max-width: 100vw !important;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      box-shadow: none;
-    }
+```php
+@media screen {
+  p img[class*="wp-image-"][class*='_banner'],
+  figure.wp-caption img[class*="wp-image-"][class*='_banner'] {
+    max-width: 100vw !important;
+    width: 100vw;
+    margin-left: calc(~"50% - 50vw");
   }
+}
+```
 
-Notice that this theme modify WordPress crop to use <a href="https://en.wikipedia.org/wiki/Bleed_(printing)">bleed</a>.
+You can add a parallax effect to any of the image formats by using [Kntnt's Parallax Images plugin](https://github.com/TBarregren/kntnt-parallax-images) and adding the class `parallax` to the image itself or any elemtn containing it. The image visible height will be half of its actuall size. Thus, if you want a parallax banner with 300 or 600 pixels of height, you should replace `…` in `[pull banner image parallax]…[/pull]` with an image of the format `medium-banner` or `extra-large-banner`, respectively.
 
 ### custom/script.js
+
 Here you can add JS code that should be loaded with the theme.
 
 ### custom/setting.less
-This file overrides LESS variables of the theme. Examples:
+
+This file overrides [Less](http://lesscss.org/) variables of the theme. Examples:
 
     @text-font: Lora, Georgia, serif;
     @heading-font: "Roboto Condensed", Arial, Helvetica, san-serif;
@@ -192,4 +195,6 @@ This file overrides LESS variables of the theme. Examples:
 
 ### custom/style.css
 
-Here you can add CSS code that should be loaded with the theme.
+Here you can add CSS ad Less code that should be loaded with the theme.
+
+Notice that  that [Less](http://lesscss.org/) evalutates `calc(…)`. To prevent that and leave the evaulation to browsers, you must escape the expression `…` by altering it to `~"…"`. Less will, for an example, evaulate `calc(10px + 5 px)` and replaced it with `15px`, while just replace `calc(~"10px + 5 px")` with `calc(10px + 5 px)` which will be evaulated by browsers.
