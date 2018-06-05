@@ -103,7 +103,7 @@ class BB_Theme_Enhancer {
   public function bb_nav_search($atts) {
     ob_start();
     get_template_part( 'includes/nav-search' );
-    return ob_get_clean();
+    return '<div class="bb-nav-search-shortcode">' . ob_get_clean() . '</div>';
   }
 
 }
