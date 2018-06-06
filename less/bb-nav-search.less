@@ -6,7 +6,7 @@
   right: initial;
 }
 
-.bb-nav-search-shortcode > .fl-page-nav-search > a.fa-search {
+.bb-nav-search-shortcode > .fl-page-nav-search > .fa-search {
   position: initial;
   top: initial;
   bottom: initial;
@@ -23,4 +23,24 @@
   bottom: initial;
   left: initial;
   right: initial;
+}
+
+.fl-menu-horizontal .bb-nav-search-shortcode > .fl-page-nav-search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fl-menu-horizontal .bb-nav-search-shortcode > .fl-page-nav-search > .fa-search {
+  font-size: 20px;
+  padding: 8px;
+  position: absolute;
+}
+
+.fl-menu-horizontal .bb-nav-search-shortcode > .fl-page-nav-search > form {
+  position: absolute;
+  top: 28px;    /* font-size + padding of .fa-search */
+  right: -28px; /* font-size + padding of .fa-search */
+  margin-top: 5px;
 }
