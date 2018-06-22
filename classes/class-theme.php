@@ -90,7 +90,7 @@ class Theme {
     // Additional LESS variables used by LESS-files included by this theme.
     $vars['service-font'] = '@text-font';
     $vars['monospace-font'] = 'Menlo, Monaco, Consolas, "Andale Mono WT", "Andale Mono", monospace';
-    $vars['small-text-size'] = '18px';
+    $vars['small-text-size'] = '17px';
     $vars['service-text-size'] = '14px';
     $vars['pre-text-size'] = '14px';
     $vars['secondary-accent-color'] = '@accent-color-hover';
@@ -125,7 +125,7 @@ class Theme {
 
   public function set_less_paths_after($paths) {
     if ( is_readable( THEME_DIR . '/custom/style.css' ) ) {
-      $paths[] = THEME_DIR . '/custom/setting.less';
+      $paths[] = THEME_DIR . '/custom/style.css';
     }
     return $paths;
   }

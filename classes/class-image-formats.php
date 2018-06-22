@@ -52,7 +52,7 @@ class Image_Formats {
 
     $image_formats['large'] = [
       'name' => __('Large', 'kntnt-bb-child-theme'),
-      'width' => 900,
+      'width' => 1060,
       'height' => 9999,
       'crop' => false
     ];
@@ -80,13 +80,6 @@ class Image_Formats {
 
     $image_formats['large_banner'] = [
       'name' => __('Large banner', 'kntnt-bb-child-theme'),
-      'width' => 1920,
-      'height' => 900,
-      'crop' => true
-    ];
-
-    $image_formats['extra_large_banner'] = [
-      'name' => __('Extra large banner', 'kntnt-bb-child-theme'),
       'width' => 1920,
       'height' => 1200,
       'crop' => true

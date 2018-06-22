@@ -54,40 +54,37 @@ h4 {
   margin-bottom: 0;
 }
 
-h4 {
-  font-style: italic;
-  font-weight: normal;
+h4,
+h5
+h6 {
+  font-family: inherit;
 }
 
-h5,
+h5 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-weight: inherit;
+  font-style: italic;
+}
+
 h6 {
   display: inline-block;
-  font-family: inherit;
   margin-bottom: 0;
 }
 
-h6 {
-  font-style: italic;
-  font-weight: normal;
-}
-
-h5:after,
 h6:after {
   content: " ";
 }
 
-h5 + p,
 h6 + p {
   display: inline;
 }
 
-h5 + p:after,
 h6 + p:after {
   content: '\0A';
   white-space: pre-wrap;
 }
 
-h5 + p + *,
 h6 + p + * {
   margin-top: 1em;
 }
@@ -168,6 +165,11 @@ p img[class*="wp-image-"][class*="alignright"] {
   margin-left: 1em;
 }
 
+p img[class*="wp-image-"][class*="alignnone"] {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 /* Images with caption */
 
@@ -191,6 +193,11 @@ figure.wp-caption[class*="alignleft"] {
 figure.wp-caption[class*="alignright"] {
   margin-top: 0;
   margin-left: 1em;
+}
+
+figure.wp-caption[class*="alignnone"] {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 figure.wp-caption img[class*="wp-image-"] {
@@ -405,26 +412,26 @@ div.fl-rich-text table {
   text-align: left;
 }
 
-body.page:not(.fl-builder) table[class*="alignleft"],
-body.single:not(.fl-builder) table[class*="alignleft"],
-div.fl-rich-text table[class*="alignleft"] {
+body.page:not(.fl-builder) table[class*="alignleft"]:not(.no-style),
+body.single:not(.fl-builder) table[class*="alignleft"]:not(.no-style),
+div.fl-rich-text table[class*="alignleft"]:not(.no-style) {
   margin-top: 0;
   margin-right: 2em;
 }
 
-body.page:not(.fl-builder) table[class*="alignright"],
-body.single:not(.fl-builder) table[class*="alignright"],
-div.fl-rich-text table[class*="alignright"] {
+body.page:not(.fl-builder) table[class*="alignright"]:not(.no-style),
+body.single:not(.fl-builder) table[class*="alignright"]:not(.no-style),
+div.fl-rich-text table[class*="alignright"]:not(.no-style) {
   margin-top: 0;
   margin-left: 1em;
 }
 
-body.page:not(.fl-builder) table thead td,
-body.single:not(.fl-builder) table thead td,
-div.fl-rich-text table thead td,
-body.page:not(.fl-builder) table th,
-body.single:not(.fl-builder) table th,
-div.fl-rich-text table th {
+body.page:not(.fl-builder) table:not(.no-style) thead td,
+body.single:not(.fl-builder) table:not(.no-style) thead td,
+div.fl-rich-text table:not(.no-style) thead td,
+body.page:not(.fl-builder) table:not(.no-style) th,
+body.single:not(.fl-builder) table:not(.no-style) th,
+div.fl-rich-text table:not(.no-style) th {
   font-family: @heading-font;
   font-weight: 600;
   color: @almost-white;
@@ -438,25 +445,25 @@ div.fl-rich-text table tr {
   color: @almost-black;
 }
 
-body.page:not(.fl-builder) table tr.even,
-body.page:not(.fl-builder) table tr:nth-child(even),
-body.single:not(.fl-builder) table tr.even,
-body.single:not(.fl-builder) table tr:nth-child(even),
-div.fl-rich-text table tr.even,
-div.fl-rich-text table tr:nth-child(even) {
+body.page:not(.fl-builder) table:not(.no-style) tr.even,
+body.page:not(.fl-builder) table:not(.no-style) tr:nth-child(even),
+body.single:not(.fl-builder) table:not(.no-style) tr.even,
+body.single:not(.fl-builder) table:not(.no-style) tr:nth-child(even),
+div.fl-rich-text table:not(.no-style) tr.even,
+div.fl-rich-text table:not(.no-style) tr:nth-child(even) {
   background: @almost-light-gray;
 }
 
 
-body.page:not(.fl-builder) table tr:hover,
-body.page:not(.fl-builder) table tr.odd:hover,
-body.page:not(.fl-builder) table tr.even:hover,
-body.single:not(.fl-builder) table tr:hover,
-body.single:not(.fl-builder) table tr.odd:hover,
-body.single:not(.fl-builder) table tr.even:hover,
-div.fl-rich-text table tr:hover,
-div.fl-rich-text table tr.odd:hover,
-div.fl-rich-text table tr.even:hover {
+body.page:not(.fl-builder) table:not(.no-style) tr:hover,
+body.page:not(.fl-builder) table:not(.no-style) tr.odd:hover,
+body.page:not(.fl-builder) table:not(.no-style) tr.even:hover,
+body.single:not(.fl-builder) table:not(.no-style) tr:hover,
+body.single:not(.fl-builder) table:not(.no-style) tr.odd:hover,
+body.single:not(.fl-builder) table:not(.no-style) tr.even:hover,
+div.fl-rich-text table:not(.no-style) tr:hover,
+div.fl-rich-text table:not(.no-style) tr.odd:hover,
+div.fl-rich-text table:not(.no-style) tr.even:hover {
   background: @light-gray;
   color: @black;
 }
