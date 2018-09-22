@@ -4,30 +4,32 @@ namespace Kntnt\BB_Child_Theme;
 
 class BB_Builder_Enhancer {
 
-  public function __construct() {
-    $this->run();
-  }
+	public function __construct() {
+		$this->run();
+	}
 
-  public function run() {
-    
-    // Load Beaver Builder Page Builder specific Less.
-    add_filter('fl_theme_compile_less_paths', [$this, 'set_less_paths'], 13);
+	public function run() {
+		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths' ], 13 );
+		add_filter( 'rewrite_rules_array', [ $this, 'pagination_rewrite_rules' ] );
+	}
 
-    // Prevents redirection of pagination with trailing slash. Necessary to
-    // make a Beaver Themer "part" with Post Grid at end of a regular post to
-    // work. This bug has been reported to the Beaver Builder team.
-    add_filter('redirect_canonical', 'fix_redirection', 10, 2);
+	/**
+	 * Load Beaver Builder Page Builder specific Less.
+	 */
+	public function set_less_paths( $paths ) {
+		$paths[] = THEME_DIR . '/less/bb-page-builder.less';
+		return $paths;
+	}
 
-  }
-
-  public function set_less_paths($paths) {
-    $paths[] = THEME_DIR . '/less/bb-page-builder.less';
-    return $paths;
-  }
-
-  public function fix_redirection($redirect_url, $requested_url) {
-    if (is_singular() && preg_filter("/.*\/page\/(\d+)\/?$/", "$1", $requested_url)) return false;
-    return $redirect_url;
-  }
+	/**
+	 * Beaver Builder add rewrite rules for pagination. These handle simpler
+	 * permalink structures, including the predefined, but not more complex like
+	 * %postname%/%post_id%. A bug report was filed 21 September 2018. Awaiting
+	 * a fix, this filter adds support for the format %postname%/%post_id%.
+	 */
+	public function pagination_rewrite_rules( $rules ) {
+		$new_rules['.+/(\d+)/paged-\d+/(\d+)'] = 'index.php?p=$matches[1]&flpaged=$matches[2]';
+		return $new_rules + $rules;
+	}
 
 }
