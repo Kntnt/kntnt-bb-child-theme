@@ -4,10 +4,6 @@ namespace Kntnt\BB_Child_Theme;
 
 class WordPress_Enhancer {
 
-	public function __construct() {
-		$this->run();
-	}
-
 	public function run() {
 
 

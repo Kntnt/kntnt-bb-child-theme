@@ -6,7 +6,7 @@ class Image_Formats {
 
 	private static $built_in_sizes = [ 'thumbnail', 'medium', 'medium_large', 'large' ];
 
-	public function __construct() {
+	public function run() {
 		$this->setup_image_formats();
 		add_filter( 'image_size_names_choose', [ $this, 'update_ui' ], 9999 );
 		add_filter( 'image_resize_dimensions', [ $this, 'crop_with_bleed' ], 10, 6 );

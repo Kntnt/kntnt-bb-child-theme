@@ -4,10 +4,6 @@ namespace Kntnt\BB_Child_Theme;
 
 class BB_Theme_Enhancer {
 
-	public function __construct() {
-		$this->run();
-	}
-
 	public function run() {
 
 		// Load Beaver Builder Theme specific Less.

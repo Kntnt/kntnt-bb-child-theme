@@ -18,10 +18,10 @@ class Theme {
 	public function run() {
 
 		// Create theme enhancers for WordPress, BB Theme and BB Builder.
-		new WordPress_Enhancer();
-		new BB_Theme_Enhancer();
-		new BB_Builder_Enhancer();
-		new Image_Formats();
+		( new WordPress_Enhancer() )->run();
+		( new BB_Theme_Enhancer() )->run();
+		( new BB_Builder_Enhancer() )->run();
+		( new Image_Formats() )->run();
 
 		// Replace Beaver Builder's presets with those found in the presets
 		// directory, set less variabels and load less files.

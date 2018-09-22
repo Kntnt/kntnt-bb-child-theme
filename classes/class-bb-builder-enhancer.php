@@ -4,10 +4,6 @@ namespace Kntnt\BB_Child_Theme;
 
 class BB_Builder_Enhancer {
 
-	public function __construct() {
-		$this->run();
-	}
-
 	public function run() {
 		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths' ], 13 );
 		add_filter( 'rewrite_rules_array', [ $this, 'pagination_rewrite_rules' ] );
