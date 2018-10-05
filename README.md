@@ -1,4 +1,4 @@
-# Kntnt's Beaver Builder Child Theme
+# Kntnt's Child Theme for Beaver Builder
 
 A WordPress child theme to Beaver Builder Theme.
 

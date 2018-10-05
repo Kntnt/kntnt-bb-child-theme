@@ -93,7 +93,7 @@ class Theme {
 		$vars['small-text-size'] = '17px';
 		$vars['service-text-size'] = '14px';
 		$vars['pre-text-size'] = '14px';
-		$vars['secondary-accent-color'] = '@accent-color-hover';
+		$vars['secondary-accent-color'] = '@accent-hover-color';
 		$vars['black'] = '#080808';
 		$vars['almost-black'] = '#333';
 		$vars['dark-gray'] = '#555';
