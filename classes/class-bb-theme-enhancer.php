@@ -21,7 +21,7 @@ class BB_Theme_Enhancer {
 		// This is an awful hack to solve what really is a bug in Beaver Builder's
 		// Theme: Google fonts are not loaded with common weights or styles.
 		// For instance, if the text font is Lora, only the nrmal weight of roman
-		// is loaded. Wuth this hack we also have bold, italic and bold italic.
+		// is loaded. With this hack we also have bold, italic and bold italic.
 		add_action( 'wp_print_styles', [ $this, 'fix_fonts' ] );
 
 		// Change avatar size.
