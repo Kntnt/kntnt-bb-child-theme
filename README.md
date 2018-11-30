@@ -18,14 +18,14 @@ Kntnt's Beaver Builder Child Theme provides many features, including:
 
 Don't edit `style.css` or `function.php`. Edit instead following files. Each are explained below.
 
-* `custom/fonts.php` — add additional Google fonts to download
+* `custom/google-fonts.php` — add additional Google fonts to download
 * `custom/functions.php` — for your own PHP code
 * `custom/image-formats.php` — for your own image formats
 * `custom/script.js`  — add your own JavaScript to be global included
 * `custom/setting.less` — override  Less variables used by theme
 * `custom/style.css` — add your own CSS to be global included
 
-### custom/fonts.php
+### custom/google-fonts.php
 
 Here you can add additional fonts from Google Fonts. For each font, add a line similar to following:
 

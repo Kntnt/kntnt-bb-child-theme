@@ -24,7 +24,7 @@ class Theme {
 		( new Image_Formats() )->run();
 
 		// Replace Beaver Builder's presets with those found in the presets
-		// directory, set less variabels and load less files.
+		// directory, set less variables and load less files.
 		add_action( 'after_setup_theme', [ $this, 'replace_presets' ], 11 );
 		add_filter( 'fl_less_vars', [ $this, 'set_less_variables' ] );
 		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths' ], 10 );
@@ -33,7 +33,7 @@ class Theme {
 		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths_before' ], 1 );
 		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths_after' ], 9999 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_fonts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
 		if ( is_readable( THEME_DIR . '/custom/functions.php' ) ) {
 			include THEME_DIR . '/custom/functions.php';
 		}
@@ -136,10 +136,10 @@ class Theme {
 		}
 	}
 
-	public function enqueue_fonts() {
-		if ( is_readable( THEME_DIR . '/custom/fonts.js' ) ) {
+	public function enqueue_google_fonts() {
+		if ( is_readable( THEME_DIR . '/custom/google-fonts.php' ) ) {
 			$fonts = [];
-			include THEME_DIR . '/custom/fonts.js';
+			include THEME_DIR . '/custom/google-fonts.php';
 			foreach ( $fonts as $font => $variants ) {
 				wp_enqueue_style( "kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants" );
 			}
