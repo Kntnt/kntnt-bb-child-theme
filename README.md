@@ -67,7 +67,14 @@ override any of them.
 </thead>
 <tbody>
 <tr>
-<td>Thumbnail (crop)</td>
+<td>Extra small</td>
+<td style="text-align: right">180</td>
+<td style="text-align: right"></td>
+<td>No</td>
+<td>extra_small</td>
+</tr>
+<tr>
+<td>Extra small (crop)</td>
 <td style="text-align: right">180</td>
 <td style="text-align: right">180</td>
 <td>Yes</td>
