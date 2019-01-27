@@ -15,8 +15,15 @@ class Image_Formats {
 
 	public static function image_formats() {
 
+		$image_formats['extra_small'] = [
+			'name' => __( 'Extra small', 'kntnt-bb-child-theme' ),
+			'width' => 180,
+			'height' => 9999,
+			'crop' => false,
+		];
+
 		$image_formats['thumbnail'] = [
-			'name' => __( 'Thumbnail', 'kntnt-bb-child-theme' ),
+			'name' => __( 'Extra small (crop)', 'kntnt-bb-child-theme' ),
 			'width' => 180,
 			'height' => 180,
 			'crop' => true,
