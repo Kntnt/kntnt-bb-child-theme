@@ -73,8 +73,8 @@ class Theme {
 			$vars['small_breakpoint'] = $global_settings->responsive_breakpoint . 'px';
 		}
 		else {
-			$vars['medium_breakpoint'] = '1024px';
-			$vars['small_breakpoint'] = '768px';
+			$vars['medium_breakpoint'] = '1023px';
+			$vars['small_breakpoint'] = '767px';
 		}
 
 		// Express font size relative the text size.
@@ -95,13 +95,13 @@ class Theme {
 		$vars['pre-text-size'] = '14px';
 		$vars['secondary-accent-color'] = '@accent-hover-color';
 		$vars['black'] = '#080808';
-		$vars['almost-black'] = '#333';
-		$vars['dark-gray'] = '#555';
-		$vars['mid-gray'] = '#ccc';
-		$vars['light-gray'] = '#eee';
-		$vars['almost-light-gray'] = '#f5f5f5';
-		$vars['almost-white'] = '#fdfdfd';
-		$vars['white'] = '#fff';
+		$vars['almost-black'] = '#282828';
+		$vars['dark-gray'] = '#808080';
+		$vars['mid-gray'] = '#d8d8d8';
+		$vars['light-gray'] = '#e0e0e0';
+		$vars['almost-light-gray'] = '#f0f0f0';
+		$vars['almost-white'] = '#f8f8f8';
+		$vars['white'] = '#ffffff';
 		$vars['box-shadow'] = '5px 5px 15px @mid-gray';
 
 		return $vars;
