@@ -156,3 +156,59 @@ div.fl-post-grid-image figcaption {
 .fl-social-icons a:hover i {
   color: @light-gray;
 }
+
+
+/* Restore media player buttons.
+ *
+ * The global button styling replaces the styling of play, volume and other
+ * buttons of WordPress built-in media player. This bug was reported to
+ * the Beaver Builder team on February 9, 2019. While awaiting the bug to be
+ * acknowledged and fixed, this is a workaround.
+ */
+.fl-page .mejs-button button {
+    color: #00ff00;
+	background: transparent url(/wp-includes/js/mediaelement/mejs-controls.svg) no-repeat;
+    font-size: 0;
+    line-height: 0;
+    border: none;
+}
+
+.fl-page .mejs-play > button {
+	background-position: 0 0;
+}
+
+.fl-page .mejs-pause > button {
+	background-position: -20px 0;
+}
+
+.fl-page .mejs-replay > button {
+	background-position: -160px 0;
+}
+
+.fl-page .mejs-volume-button button {
+	background-position: 60px 0;
+}
+
+.fl-page .mejs-fullscreen-button > button {
+	background-position: -80px 0;
+}
+
+.fl-page .mejs-unfullscreen > button {
+	background-position: -100px 0;
+}
+
+.fl-page .mejs-mute > button {
+	background-position: -60px 0;
+}
+
+.fl-page .mejs-unmute > button {
+	background-position: -40px 0;
+}
+
+.fl-page .mejs-captions-button > button {
+	background-position: -140px 0;
+}
+
+.fl-page .mejs-chapters-button > button {
+	background-position: -180px 0;
+}
