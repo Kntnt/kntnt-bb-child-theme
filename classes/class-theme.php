@@ -65,7 +65,7 @@ class Theme {
 
 	public function set_less_variables( $vars ) {
 
-		// Use the gloabal break points of Beaver Bulider's Page Builder
+		// Use the global break points of Beaver Builder's Page Builder
 		// as break points for responsive fonts.
 		if ( class_exists( 'FLBuilderModel' ) ) {
 			$global_settings = \FLBuilderModel::get_global_settings();
