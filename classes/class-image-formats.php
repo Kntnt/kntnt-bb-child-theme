@@ -10,7 +10,6 @@ class Image_Formats {
 		$this->setup_image_formats();
 		add_filter( 'image_size_names_choose', [ $this, 'update_ui' ], 9999 );
 		add_filter( 'image_resize_dimensions', [ $this, 'crop_with_bleed' ], 10, 6 );
-		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths' ], 14 );
 	}
 
 	public static function image_formats() {
@@ -112,7 +111,7 @@ class Image_Formats {
 
 	public function update_ui( $sizes ) {
 
-		// Remove all previously defined images sizes that is overriden by ImageSizeBuilder.
+		// Remove all previously defined images sizes that is overridden by ImageSizeBuilder.
 		$sizes = array_diff_key( $sizes, $this->names );
 
 		// Remove all images sizes with an empty name.
@@ -137,11 +136,6 @@ class Image_Formats {
 
 		return [ 0, 0, (int) $src_x, (int) $src_y, (int) $dst_w, (int) $dst_h, (int) $crop_w, (int) $crop_h ];
 
-	}
-
-	public function set_less_paths( $paths ) {
-		$paths[] = THEME_DIR . '/less/image-formats.less';
-		return $paths;
 	}
 
 	private function setImageSize( $slug, $width, $height, $crop, $name ) {
