@@ -183,7 +183,7 @@ This file overrides LESS variables of the theme. Examples:
     @service-font: @text-font;
     @text-size: 24px;
     @small-text-size: 17px;
-    @pre-text-size: 14px;
+    @monospace-text-size: 14px;
     @service-text-size: 14px;
     @accent-color: #2C9A43;
     @secondary-accent-color: @accent-color-hover;
