@@ -14,7 +14,7 @@ div.fl-page-bar-container {
 
 div.fl-page-bar-row,
 div.fl-page-bar-row .menu {
-  font-size: 10px;
+  font-size: @service-text-size;
   text-transform: uppercase;
 }
 div.fl-page-bar-row div.text-center {
@@ -26,7 +26,7 @@ div.fl-page-bar-row div.text-center {
 
 form.fl-comment-form > p:first-child {
   font-family: @service-font;
-  font-size: 12px;
+  font-size: @service-text-size;
 }
 
 
@@ -47,8 +47,7 @@ div.fl-archive div.fl-post-thumb {
 /* Responsive crop and centering of featured image */
 
 body:not(.fl-builder) div:not(.fl-post-image-beside) > div.fl-post-thumb,
-div.featured-image div.fl-photo-content {
-  /* Layout built with Themer */
+div.featured-image div.fl-photo-content /* BB layout with class featured-image */ {
   position: relative;
   overflow: hidden;
   padding-top: 56.25%; /* 16:9 */
@@ -57,7 +56,7 @@ div.featured-image div.fl-photo-content {
 }
 
 body:not(.fl-builder) div:not(.fl-post-image-beside) > div.fl-post-thumb img,
-div.featured-image div.fl-photo-content img /* Layout built with Themer */
+div.featured-image div.fl-photo-content img /* BB layout with class featured-image */
 {
   position: absolute;
   top: 50%;
@@ -70,13 +69,15 @@ div.featured-image div.fl-photo-content img /* Layout built with Themer */
 /* Image caption for featured image */
 
 body:not(.fl-builder) div.fl-post-thumb,
-div.featured-image div.fl-photo-content, /* Layout built with Themer */
+div.featured-image div.fl-photo-content,   /* BB layout with class featured-image */
+div.caption-on-image div.fl-photo-content, /* BB layout with class corner-caption */
 div.fl-post-grid-image {
   position: relative;
 }
 
 body:not(.fl-builder) div.fl-post-thumb figcaption,
-div.featured-image div.fl-photo-content figcaption, /* Layout built with Themer */
+div.featured-image div.fl-photo-content figcaption, /* BB layout with class featured-image */
+div.corner-caption div.fl-photo-content figcaption, /* BB layout with class corner-caption */
 div.fl-post-grid-image figcaption {
   position: absolute;
   bottom: 0;
@@ -87,7 +88,7 @@ div.fl-post-grid-image figcaption {
 }
 
 div.fl-post-grid-image figcaption {
-  font-size: 0.5em;
+  font-size: @service-text-size;
 }
 
 
@@ -97,7 +98,7 @@ div.fl-post-grid-image figcaption {
 .comment-edit-link
 {
   font-family: @service-font;
-  font-size: 12px;
+  font-size: @service-text-size;
   font-weight: normal;
   color: @dark-gray;
 }
