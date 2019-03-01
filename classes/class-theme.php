@@ -79,8 +79,8 @@ class Theme {
 
         // Express font size relative root font size.
         $vars['root-size'] = '16px';
-        $vars['root-size-medium'] = '13.4px';
-        $vars['root-size-small'] = '11.2px';
+        $vars['root-size-medium'] = '14.3px';
+        $vars['root-size-small'] = '12.8px';
         $vars['text-size'] = ((float)$vars['text-size']) / $vars['root-size'] . 'rem';
         $vars['small-text-size'] = 16 / $vars['root-size'] . 'rem';
         $vars['service-text-size'] = 13 / $vars['root-size'] . 'rem';
