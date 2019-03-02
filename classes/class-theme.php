@@ -90,6 +90,7 @@ class Theme {
         $vars['h4-size'] = ((float)$vars['h4-size']) / $vars['root-size'] . 'rem';
         $vars['h5-size'] = ((float)$vars['h5-size']) / $vars['root-size'] . 'rem';
         $vars['h6-size'] = ((float)$vars['h6-size']) / $vars['root-size'] . 'rem';
+        $vars['button-font-size'] = ((float)$vars['button-font-size']) / $vars['root-size'] . 'rem';
 
         // Additional LESS variables for fonts
         $vars['service-font'] = '@text-font';
