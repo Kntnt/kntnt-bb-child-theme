@@ -81,15 +81,15 @@ class Theme {
         $vars['root-size'] = '16px';
         $vars['root-size-medium'] = '14.3px';
         $vars['root-size-small'] = '12.8px';
-        $vars['text-size'] = ((float)$vars['text-size']) / $vars['root-size'] . 'rem';
+        $vars['text-size'] = (@(float)$vars['text-size']) / $vars['root-size'] . 'rem';
         $vars['small-text-size'] = 16 / $vars['root-size'] . 'rem';
         $vars['service-text-size'] = 13 / $vars['root-size'] . 'rem';
-        $vars['h1-size'] = ((float)$vars['h1-size']) / $vars['root-size'] . 'rem';
-        $vars['h2-size'] = ((float)$vars['h2-size']) / $vars['root-size'] . 'rem';
-        $vars['h3-size'] = ((float)$vars['h3-size']) / $vars['root-size'] . 'rem';
-        $vars['h4-size'] = ((float)$vars['h4-size']) / $vars['root-size'] . 'rem';
-        $vars['h5-size'] = ((float)$vars['h5-size']) / $vars['root-size'] . 'rem';
-        $vars['h6-size'] = ((float)$vars['h6-size']) / $vars['root-size'] . 'rem';
+        $vars['h1-size'] = (@(float)$vars['h1-size']) / $vars['root-size'] . 'rem';
+        $vars['h2-size'] = (@(float)$vars['h2-size']) / $vars['root-size'] . 'rem';
+        $vars['h3-size'] = (@(float)$vars['h3-size']) / $vars['root-size'] . 'rem';
+        $vars['h4-size'] = (@(float)$vars['h4-size']) / $vars['root-size'] . 'rem';
+        $vars['h5-size'] = (@(float)$vars['h5-size']) / $vars['root-size'] . 'rem';
+        $vars['h6-size'] = (@(float)$vars['h6-size']) / $vars['root-size'] . 'rem';
         $vars['button-font-size'] = ((float)$vars['button-font-size']) / $vars['root-size'] . 'rem';
 
         // Additional LESS variables for fonts
