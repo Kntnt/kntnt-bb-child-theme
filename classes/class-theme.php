@@ -65,17 +65,9 @@ class Theme {
 
     public function set_less_variables($vars) {
 
-        // Use the global break points of Beaver Builder's Page Builder
-        // as break points for responsive fonts.
-        if (class_exists('FLBuilderModel')) {
-            $global_settings = \FLBuilderModel::get_global_settings();
-            $vars['medium_breakpoint'] = $global_settings->medium_breakpoint . 'px';
-            $vars['small_breakpoint'] = $global_settings->responsive_breakpoint . 'px';
-        }
-        else {
-            $vars['medium_breakpoint'] = '992px';
-            $vars['small_breakpoint'] = '768px';
-        }
+        // Use the global break points of Beaver Builder's Page Builder,
+        // if activated and set, as break points for responsive fonts.
+        list($vars['small_breakpoint'], $vars['medium_breakpoint']) = $this->breakpoints();
 
         // Express font size relative root font size.
         $vars['root-size'] = '16px';
@@ -149,6 +141,16 @@ class Theme {
                 wp_enqueue_style("kntnt-bb-child-$font", "https://fonts.googleapis.com/css?family=$font:$variants");
             }
         }
+    }
+
+    private function breakpoints() {
+        if (in_array('bb-plugin/fl-builder.php', (array)get_option('active_plugins', []))) {
+            $settings = get_option('_fl_builder_settings', false);
+            if ($settings && isset($settings->medium_breakpoint) && isset($settings->responsive_breakpoint)) {
+                return [$settings->responsive_breakpoint . 'px', $settings->medium_breakpoint . 'px'];
+            }
+        }
+        return ['767px', '991px'];
     }
 
 }
