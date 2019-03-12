@@ -84,6 +84,12 @@ class Theme {
         $vars['h6-size'] = (float)$vars['h6-size'] / (float)$vars['root-size'] . 'rem';
         $vars['button-font-size'] = (float)$vars['button-font-size'] / (float)$vars['root-size'] . 'rem';
 
+        // Font size and line height of H1 should be the same on all devices.
+        $vars['medium-h1-size'] = $vars['h1-size'];
+        $vars['mobile-h1-size'] = $vars['h1-size'];
+        $vars['medium-h1-line-height'] = $vars['h1-line-height'];
+        $vars['mobile-h1-line-height'] = $vars['h1-line-height'];
+
         // Additional LESS variables for fonts
         $vars['service-font'] = '@text-font';
         $vars['monospace-font'] = 'Menlo, Monaco, Consolas, "Andale Mono WT", "Andale Mono", monospace';
