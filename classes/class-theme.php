@@ -74,7 +74,7 @@ class Theme {
         $vars['root-size-medium'] = '14.3px';
         $vars['root-size-small'] = '12.8px';
         $vars['text-size'] = (float)$vars['text-size'] / (float)$vars['root-size'] . 'rem';
-        $vars['small-text-size'] = 16 / (float)$vars['root-size'];
+        $vars['small-text-size'] = 16 / (float)$vars['root-size'] . 'rem';
         $vars['service-text-size'] = 13 / (float)$vars['root-size'] . 'rem';
         $vars['h1-size'] = (float)$vars['h1-size'] / (float)$vars['root-size'] . 'rem';
         $vars['h2-size'] = (float)$vars['h2-size'] / (float)$vars['root-size'] . 'rem';
@@ -98,14 +98,14 @@ class Theme {
         // Additional LESS variables for colors
         $vars['secondary-accent-color'] = '@accent-hover-color';
         $vars['black'] = '#080808';
-        $vars['almost-black'] = '#282828';
+        $vars['almost-black'] = '#333333';
         $vars['dark-gray'] = '#808080';
-        $vars['mid-gray'] = '#d8d8d8';
-        $vars['light-gray'] = '#e0e0e0';
-        $vars['almost-light-gray'] = '#f0f0f0';
-        $vars['almost-white'] = '#f8f8f8';
+        $vars['mid-gray'] = '#cccccc';
+        $vars['light-gray'] = '#e6e6e6';
+        $vars['almost-light-gray'] = '#efefef';
+        $vars['almost-white'] = '#f7f7f7';
         $vars['white'] = '#ffffff';
-        $vars['box-shadow'] = '5px 5px 15px @mid-gray';
+        $vars['box-shadow'] = '5px 5px 15px rgba(216, 216, 216, 0.5)';
 
         return $vars;
 
@@ -156,7 +156,7 @@ class Theme {
                 return [$settings->responsive_breakpoint . 'px', $settings->medium_breakpoint . 'px'];
             }
         }
-        return ['767px', '991px'];
+        return ['768px', '1024px'];
     }
 
 }
