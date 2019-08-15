@@ -438,14 +438,14 @@ div.fl-rich-text table[class*="alignright"]:not(.no-style) {
   margin-left: 1em;
 }
 
-body.page:not(.fl-builder) table:not(.no-style) thead td,
-body.single:not(.fl-builder) table:not(.no-style) thead td,
+/* The use of the same class twice (e.g. .single.single) is get enough specificity when using Beaver Themer. */
+body.page.page:not(.fl-builder) table:not(.no-style) thead td,
+body.single.single:not(.fl-builder) table:not(.no-style) thead td,
 div.fl-rich-text table:not(.no-style) thead td,
-body.page:not(.fl-builder) table:not(.no-style) th,
-body.single:not(.fl-builder) table:not(.no-style) th,
+body.page.page:not(.fl-builder) table:not(.no-style) th,
+body.single.single:not(.fl-builder) table:not(.no-style) th,
 div.fl-rich-text table:not(.no-style) th {
   font-family: @heading-font;
-  font-weight: 600;
   color: @almost-white;
   background: @dark-gray;
 }
@@ -486,9 +486,10 @@ body.single:not(.fl-builder) table td,
 body.single:not(.fl-builder) table th,
 div.fl-rich-text table td,
 div.fl-rich-text table th {
-  border: 1px solid @light-gray;
+  border: 1px solid @mid-gray;
   padding: 0.2em 0.5em;
   vertical-align: top;
+  font-weight: normal;
 }
 
 
