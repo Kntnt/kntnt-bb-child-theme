@@ -82,7 +82,7 @@ class Theme {
         $vars['h4-size'] = (float)$vars['h4-size'] / (float)$vars['root-size'] . 'rem';
         $vars['h5-size'] = (float)$vars['h5-size'] / (float)$vars['root-size'] . 'rem';
         $vars['h6-size'] = (float)$vars['h6-size'] / (float)$vars['root-size'] . 'rem';
-        $vars['button-font-size'] = (float)$vars['button-font-size'] / (float)$vars['root-size'] . 'rem';
+        $vars['button-font-size'] = (float)$vars['button-font-size'] / (float)$vars['root-size'] . 'em';
 
         // Font size and line height of H1 should be the same on all devices.
         $vars['medium-h1-size'] = $vars['h1-size'];
