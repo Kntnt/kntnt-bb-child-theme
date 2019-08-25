@@ -14,6 +14,25 @@ Kntnt's Beaver Builder Child Theme provides many features, including:
 * Beaver Builder Page Builder's breakpoints are used if present.
 * Removes from Customizer everything that can be replaced with *[Beaver Themer](https://www.wpbeaverbuilder.com/beaver-themer/)* if the plugin is active.
 
+## Companion plugins
+
+You should consider using following [plugins](https://wordpress.org/support/article/must-use-plugins/)
+in conjunction with this theme:
+
+* [Kntnt Add Referrer Origin](https://github.com/Kntnt/kntnt-add-referrer-origin)
+* [Kntnt Fix Colon in Fragments of Relative URLs](https://github.com/Kntnt/kntnt-fix-colon-in-fragments-of-relative-urls)
+* [Kntnt Remove Capital P Dangit](https://github.com/Kntnt/kntnt-remove-capital-p-dangit)
+* [Kntnt Remove WP Generator](https://github.com/Kntnt/kntnt-remove-wp-generator)
+
+You should install them as mu-plugins, although they can also be installed as regular plugins as well.
+
+Follow these steps to install them as mu-plugins:
+
+1. In your `wp-content` directory, create a `mu-plugin` directory if not already existing.
+2. Download mu-plugin you want to install and unzip it somewhere outside your Wordpress installation.
+3. Move or copy the single PHP file inside the unzipped directory into the `mu-plugin` directory.
+4. Delete the downloaded zip-file and the unzipped directory and its content. 
+
 ## For developers
 
 Don't edit `style.css` or `function.php`. Edit instead following files. Each are explained below.

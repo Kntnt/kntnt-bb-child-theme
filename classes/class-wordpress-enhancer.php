@@ -10,17 +10,6 @@ class WordPress_Enhancer {
 		// Load WordPress specific LESS
 		add_filter( 'fl_theme_compile_less_paths', [ $this, 'set_less_paths' ], 11 );
 
-		// Don't change Wordpress to WordPress.
-		remove_filter( 'the_title', 'capital_P_dangit', 11 );
-		remove_filter( 'the_content', 'capital_P_dangit', 11 );
-		remove_filter( 'comment_text', 'capital_P_dangit', 31 );
-
-		// Don't give out WordPress version.
-		remove_action( 'wp_head', 'wp_generator' );
-
-		// Add referrer so that other sites can track visits comming from this site.
-		add_action( 'wp_head', [ $this, 'echo_referrer' ] );
-
 		// Show caption on featured images
 		add_filter( 'post_thumbnail_html', [ $this, 'add_caption_to_featured_image' ], 10, 5 );
 
@@ -32,10 +21,6 @@ class WordPress_Enhancer {
 	public function set_less_paths( $paths ) {
 		$paths[] = THEME_DIR . '/less/wordpress.less';
 		return $paths;
-	}
-
-	public function echo_referrer() {
-		echo '<meta name="referrer" content="origin">';
 	}
 
 	public function add_caption_to_featured_image( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
