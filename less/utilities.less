@@ -104,67 +104,117 @@ hr + figure.alignright + * {
 
 /* Create columns as in this example:
  *
- *   <div class="col3 width33 first">Left column</div>
- *   <div class="col3 width33">Middle column</div>
- *   <div class="col3 width33 last">Right column</div>
+ * <style>
+ *
+ * .container {
+ *   width: 500px;
+ * }
+ *
+ * .col1,
+ * .col2,
+ * .col3,
+ * .col4 {
+ *   background: lightgray;
+ *   padding: 1em;
+ * }
+ *
+ * </style>
+ *
+ * <div class="container">
+ *   <div class="col1">100%</div>
+ *   <div class="col2 width50 first">50%</div>
+ *   <div class="col2 width50 last">50%</div>
+ *   <div class="col2 width25 first">25%</div>
+ *   <div class="col2 width75 last">75%</div>
+ *   <div class="col2 width75 first">75%</div>
+ *   <div class="col2 width25 last">25%</div>
+ *   <div class="col2 width33 first">33%</div>
+ *   <div class="col2 width67 last">67%</div>
+ *   <div class="col2 width67 first">67%</div>
+ *   <div class="col2 width33 last">33%</div>
+ *   <div class="col3 width33 first">33%</div>
+ *   <div class="col3 width33">33%</div>
+ *   <div class="col3 width33 last">33%</div>
+ *   <div class="col3 width25 first">25%</div>
+ *   <div class="col3 width25">25%</div>
+ *   <div class="col3 width50 last">50%</div>
+ *   <div class="col3 width25 first">25%</div>
+ *   <div class="col3 width50">50%</div>
+ *   <div class="col3 width25 last">25%</div>
+ *   <div class="col3 width50 first">50%</div>
+ *   <div class="col3 width25">25%</div>
+ *   <div class="col3 width25 last">25%</div>
+ *   <div class="col4 width25 first">25%</div>
+ *   <div class="col4 width25">25%</div>
+ *   <div class="col4 width25">25%</div>
+ *   <div class="col4 width25 last">25%</div>
+ * </div>
  */
 
+.col1,
 .col2,
 .col3,
 .col4 {
+  box-sizing: border-box;
   float: left;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 0.5em;
+}
+
+.col1 {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .col2.first,
 .col3.first,
 .col4.first {
   margin-left: 0;
-  clear: left;
 }
 
 .col2.last,
 .col3.last,
 .col4.last {
   margin-right: 0;
-  clear: right;
+}
+
+.col1 {
+  width:  100%;
 }
 
 .col2.width25 {
-  width: ~"calc( ( 100% - 10px ) * 1 / 4 )";
+  width:  calc ~"( ( 100% - 1em ) * 1 / 4 )";
 }
 
 .col2.width33 {
-  width: ~"calc( ( 100% - 10px ) * 1 / 3 )";
+  width:  calc ~"( ( 100% - 1em ) * 1 / 3 )";
 }
 
 .col2.width50 {
-  width: ~"calc( ( 100% - 10px ) * 1 / 2 )";
+  width:  calc ~"( ( 100% - 1em ) * 1 / 2 )";
 }
 
 .col2.width67 {
-  width: ~"calc( ( 100% - 10px ) * 2 / 3 )";
+  width:  calc ~"( ( 100% - 1em ) * 2 / 3 )";
 }
 
 .col2.width75 {
-  width: ~"calc( ( 100% - 10px ) * 3 / 4 )";
+  width:  calc ~"( ( 100% - 1em ) * 3 / 4 )";
 }
 
 .col3.width25 {
-  width: ~"calc( ( 100% - 20px ) * 1 / 4 )";
+  width:  calc ~"( ( 100% - 2em ) * 1 / 4 )";
 }
 
 .col3.width33 {
-  width: ~"calc( ( 100% - 20px ) * 1 / 3 )";
+  width:  calc ~"( ( 100% - 2em ) * 1 / 3 )";
 }
 
 .col3.width50 {
-  width: ~"calc( ( 100% - 20px ) * 2 / 4 )";
+  width:  calc ~"( ( 100% - 2em ) * 2 / 4 )";
 }
 
 .col4.width25 {
-  width: ~"calc( ( 100% - 30px ) * 1 / 4 )";
+  width:  calc ~"( ( 100% - 3em ) * 1 / 4 )";
 }
 
 
