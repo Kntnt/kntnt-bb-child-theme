@@ -496,6 +496,14 @@ div.fl-rich-text table th {
   font-weight: normal;
 }
 
+body.page.page:not(.fl-builder) table:not(.no-style) tfoot td,
+body.single.single:not(.fl-builder) table:not(.no-style) tfoot td,
+div.fl-rich-text table:not(.no-style) tfoot td {
+  font-size: @service-text-size;
+  color: @almost-white;
+  background: @dark-gray;
+}
+
 
 /* Caption */
 
@@ -503,6 +511,7 @@ body.page:not(.fl-builder) table caption,
 body.single:not(.fl-builder) table caption,
 div.fl-rich-text table caption {
   display: table-caption;
+  caption-side: top;
   margin-bottom: 0.2em;
   padding: 0;
   color: @dark-gray;
