@@ -386,15 +386,21 @@ ol ol {
 /* Definition list */
 
 dl {
-  margin: 2em 0 1em 2em;
+  margin: 1em 0 1em 2em;
   padding: 0;
   overflow-x: hidden; /* Play nice with floats */
 }
 
 dt {
-  display: inline;
+  display: inline-block;
+  margin-top: 0.5em;
   font-weight: 600;
 }
+
+dt:first-of-type {
+  margin-top: 0;
+}
+
 
 dt:after {
   content: ": ";
@@ -402,17 +408,11 @@ dt:after {
 
 dd {
   display: inline;
-  margin: 0;
 }
 
 dd:after {
-  content: '\0A\0A';
+  content: '\0A';
   white-space: pre-wrap;
-}
-
-dt:last-of-type,
-dl:last-of-type {
-  margin-bottom: 0;
 }
 
 
