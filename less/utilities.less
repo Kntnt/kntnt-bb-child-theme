@@ -102,119 +102,150 @@ hr + figure.alignright + * {
 }
 
 
-/* Create columns as in this example:
- *
- * <style>
- *
- * .container {
- *   width: 500px;
- * }
- *
- * .col1,
- * .col2,
- * .col3,
- * .col4 {
- *   background: lightgray;
- *   padding: 1em;
- * }
- *
- * </style>
- *
- * <div class="container">
- *   <div class="col1">100%</div>
- *   <div class="col2 width50 first">50%</div>
- *   <div class="col2 width50 last">50%</div>
- *   <div class="col2 width25 first">25%</div>
- *   <div class="col2 width75 last">75%</div>
- *   <div class="col2 width75 first">75%</div>
- *   <div class="col2 width25 last">25%</div>
- *   <div class="col2 width33 first">33%</div>
- *   <div class="col2 width67 last">67%</div>
- *   <div class="col2 width67 first">67%</div>
- *   <div class="col2 width33 last">33%</div>
- *   <div class="col3 width33 first">33%</div>
- *   <div class="col3 width33">33%</div>
- *   <div class="col3 width33 last">33%</div>
- *   <div class="col3 width25 first">25%</div>
- *   <div class="col3 width25">25%</div>
- *   <div class="col3 width50 last">50%</div>
- *   <div class="col3 width25 first">25%</div>
- *   <div class="col3 width50">50%</div>
- *   <div class="col3 width25 last">25%</div>
- *   <div class="col3 width50 first">50%</div>
- *   <div class="col3 width25">25%</div>
- *   <div class="col3 width25 last">25%</div>
- *   <div class="col4 width25 first">25%</div>
- *   <div class="col4 width25">25%</div>
- *   <div class="col4 width25">25%</div>
- *   <div class="col4 width25 last">25%</div>
- * </div>
- */
+/* Outer container form a row. */
 
-.col1,
-.col2,
-.col3,
-.col4 {
-  box-sizing: border-box;
-  float: left;
-  margin: 0.5em;
+.kntnt-columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
 }
 
-.col1 {
-  margin-left: 0;
-  margin-right: 0;
+.kntnt-columns:not(.kntnt-columns-no-gutter):not(:first-child):not(:last-child) {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
-.col2.first,
-.col3.first,
-.col4.first {
-  margin-left: 0;
+
+/* Inner container form a column. */
+
+.kntnt-columns > * {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-.col2.last,
-.col3.last,
-.col4.last {
-  margin-right: 0;
+.kntnt-columns:not(.kntnt-columns-no-gutter):not(:first-child):not(:last-child) > * {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
-.col1 {
-  width: 100%;
+
+/* Columns: 100% */
+
+.kntnt-columns-100 > * {
+  flex-basis: 100%;
 }
 
-.col2.width25 {
-  width: ~"calc( ( 100% - 1em ) * 1 / 4 )";
+
+/* Colums: 50% + 50% */
+
+.kntnt-columns-50-50 > * {
+  flex-basis: 50%;
 }
 
-.col2.width33 {
-  width: ~"calc( ( 100% - 1em ) * 1 / 3 )";
+
+/* Columns: 33% + 67% */
+
+.kntnt-columns-33-67 > :first-child {
+  flex-basis: 33.33%;
 }
 
-.col2.width50 {
-  width: ~"calc( ( 100% - 1em ) * 1 / 2 )";
+.kntnt-columns-33-67 > :last-child {
+  flex-basis: 66.67%;
 }
 
-.col2.width67 {
-  width: ~"calc( ( 100% - 1em ) * 2 / 3 )";
+
+/* Columns: 67% + 33% */
+
+.kntnt-columns-67-33 > :first-child {
+  flex-basis: 66.67%;
 }
 
-.col2.width75 {
-  width: ~"calc( ( 100% - 1em ) * 3 / 4 )";
+.kntnt-columns-67-33 > :last-child {
+  flex-basis: 33.33%;
 }
 
-.col3.width25 {
-  width: ~"calc( ( 100% - 2em ) * 1 / 4 )";
+
+/* Columns 25% + 75% */
+
+.kntnt-columns-25-75 > :first-child {
+  flex-basis: 25%;
 }
 
-.col3.width33 {
-  width: ~"calc( ( 100% - 2em ) * 1 / 3 )";
+.kntnt-columns-25-75 > :last-child {
+  flex-basis: 75%;
 }
 
-.col3.width50 {
-  width: ~"calc( ( 100% - 2em ) * 2 / 4 )";
+
+/* Columns 75% + 25% */
+
+.kntnt-columns-75-25 > :first-child {
+  flex-basis: 75%;
 }
 
-.col4.width25 {
-  width: ~"calc( ( 100% - 3em ) * 1 / 4 )";
+.kntnt-columns-75-25 > :last-child {
+  flex-basis: 25%;
+}
+
+
+/* Columns 33% + 33% + 33% */
+
+.kntnt-columns-33-33-33 > * {
+  flex-basis: 33%;
+}
+
+
+/* Columns 25% + 25% + 50% */
+
+.kntnt-columns-25-25-50 > :nth-child(1) {
+  flex-basis: 25%;
+}
+
+.kntnt-columns-25-25-50 > :nth-child(2) {
+  flex-basis: 25%;
+}
+
+.kntnt-columns-25-25-50 > :nth-child(3) {
+  flex-basis: 50%;
+}
+
+
+/* Columns 25% + 50% + 25% */
+
+.kntnt-columns-25-50-25 > :nth-child(1) {
+  flex-basis: 25%;
+}
+
+.kntnt-columns-25-50-25 > :nth-child(2) {
+  flex-basis: 50%;
+}
+
+.kntnt-columns-25-50-25 > :nth-child(3) {
+  flex-basis: 25%;
+}
+
+
+/* Columns 50% + 25% + 25% */
+
+.kntnt-columns-50-25-25 > :nth-child(1) {
+  flex-basis: 50%;
+}
+
+.kntnt-columns-50-25-25 > :nth-child(2) {
+  flex-basis: 25%;
+}
+
+.kntnt-columns-50-25-25 > :nth-child(3) {
+  flex-basis: 25%;
+}
+
+
+/* Columns 25% + 25% + 25% + 25% */
+
+.kntnt-columns-25-25-25-25 > * {
+  flex-basis: 25%;
 }
 
 
@@ -299,8 +330,14 @@ hr + figure.alignright + * {
 
 /* Miscellaneous utilities */
 
-.center {
+.center,
+.center-horizontally  {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center;
 }
