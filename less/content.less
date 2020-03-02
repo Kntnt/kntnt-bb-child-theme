@@ -619,13 +619,19 @@ textarea:focus
 }
 
 input::placeholder,
+input[type="date"]::placeholder,
+input[type="email"]::placeholder,
+input[type="month"]::placeholder,
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+input[type="search"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="text"]::placeholder,
+input[type="time"]::placeholder,
+input[type="url"]::placeholder,
+input[type="week"]::placeholder,
 textarea::placeholder {
   color: @almost-black;
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-  color: @mid-gray;
 }
 
 select {
