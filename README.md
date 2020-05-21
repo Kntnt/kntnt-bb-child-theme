@@ -1,14 +1,14 @@
-# Kntnt's Child Theme for Beaver Builder
+# Kntnt Child Theme for Beavar Theme
 
-A WordPress child theme to Beaver Builder Theme.
+A WordPress child theme for Beaver Theme.
 
 ## Description
 
-Kntnt's Beaver Builder Child Theme is an advanced child theme of *[Beaver Builder Theme](https://www.wpbeaverbuilder.com/wordpress-framework-theme/)*, which is included in the Beaver Builder's *Pro* and *Agency* packages.
+Kntnt Child Theme for Beavar Theme is an advanced child theme of *[Beaver Theme](https://www.wpbeaverbuilder.com/wordpress-framework-theme/)*, which is included in the Beaver Builder's *Pro* and *Agency* packages.
 
 ## Features
 
-Kntnt's Beaver Builder Child Theme provides many features, including:
+Kntnt Child Theme for Beavar Theme provides many features, including:
 
 * Responsive font sizes.
 * Beaver Builder Page Builder's breakpoints are used if present.
