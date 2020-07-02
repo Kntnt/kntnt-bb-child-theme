@@ -222,80 +222,95 @@ hr + figure.alignright + * {
  * Start by creating a row. Use a `kntnt-columns-…` class to identify it as
  * a row and how many columns it should have.
  *
- *  <div class="kntnt-columns-50-50">
- *    …
- *  </div>
+ *   <div class="kntnt-columns-50-50">
+ *     …
+ *   </div>
  *
  * Create the required number of columns:
  *
- *  <div class="kntnt-columns-25-25-50">
- *    <div> <!-- First column -->
- *      …
- *    </div>
- *    <div> <!-- Second column -->
- *      …
- *    </div>
- *    <div> <!-- Third column -->
- *      …
- *    </div>
- *  </div>
+ *   <div class="kntnt-columns-25-25-50">
+ *     <div> <!-- First column -->
+ *       …
+ *     </div>
+ *     <div> <!-- Second column -->
+ *       …
+ *     </div>
+ *     <div> <!-- Third column -->
+ *       …
+ *     </div>
+ *   </div>
  *
  * Finally, create desired number of cells in each column:
  *
- *  <div class="kntnt-columns-25-25-50">
- *    <div> <!-- First column -->
- *      <div>…</div> <!-- First cell of first column -->
- *      <div>…</div> <!-- Second cell of first column -->
- *      …
- *      <div>…</div> <!-- Last cell of first column -->
- *    </div>
- *    <div> <!-- Second column -->
- *      …
- *    </div>
- *    <div> <!-- Third column -->
- *      …
- *    </div>
- *  </div>
+ *   <div class="kntnt-columns-25-25-50">
+ *     <div> <!-- First column -->
+ *       <div>…</div> <!-- First cell of first column -->
+ *       <div>…</div> <!-- Second cell of first column -->
+ *       …
+ *       <div>…</div> <!-- Last cell of first column -->
+ *     </div>
+ *     <div> <!-- Second column -->
+ *       …
+ *     </div>
+ *     <div> <!-- Third column -->
+ *       …
+ *     </div>
+ *   </div>
+ *
+ * Notice that other elements than <div> can be used. Example:
+ *
+ *   <div class="kntnt-columns-50-50">
+ *     <ul>
+ *       <li>List item 1 in column 1</li>
+ *       <li>List item 2 in column 1</li>
+ *     </ul>
+ *     <ul>
+ *       <li>List item 1 in column 2</li>
+ *       <li>List item 2 in column 2</li>
+ *     </ul>
+ *   </div>
+ *
  *
  * By default, the cells have 0.5em padding, and the objetcs put in them
- * get 0 margin and border-box sizing. Lists put in cells also get inside
- * list style position. All of this to ensure a consisent look in most cases.
- * However, it is possible to prevnt this, leaving everything "as is", by
- * adding the class `kntnt-columns-no-gutter` on he row:
+ * get 0 margin and border-box sizing. Moreover, if lists are used as
+ * colunms (as ine the example above), outside list style position is applied.
+ * This is to ensure a consisent look in most cases. However, it is possible
+ * to prevnt this, leaving everything "as is", by adding the class
+ * `kntnt-columns-no-gutter` on the row:
  *
- *  <div class="kntnt-columns-50-50 kntnt-columns-no-gutter">
- *    …
- *  </div>
+ *   <div class="kntnt-columns-50-50 kntnt-columns-no-gutter">
+ *     …
+ *   </div>
  *
  * It's possible to add rows in columns like this:
  *
- *  <div class="kntnt-columns-50-50">
- *    <div> <!-- First column -->
- *      <div class="kntnt-columns-50-50">
- *        <div> <!-- First subcolumn -->
- *          …
- *        </div>
- *        <div> <!-- Second subcolumn -->
- *          …
- *        </div>
- *      </div>
- *    </div>
- *    <div> <!-- Second column -->
- *      …
- *    </div>
- *  </div>
+ *   <div class="kntnt-columns-50-50">
+ *     <div> <!-- First column -->
+ *       <div class="kntnt-columns-50-50">
+ *         <div> <!-- First subcolumn -->
+ *           …
+ *         </div>
+ *         <div> <!-- Second subcolumn -->
+ *           …
+ *         </div>
+ *       </div>
+ *     </div>
+ *     <div> <!-- Second column -->
+ *       …
+ *     </div>
+ *   </div>
  *
  * The class `kntnt-columns-stack-normal-1024` makes columns stack on
  * top of each other if the wide is smaller than 1024 px:
  * 
- *  <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-1024">
- *    <div> <!-- First column -->
- *      …
- *    </div>
- *    <div> <!-- Second column -->
- *      …
- *    </div>
- *  </div>
+ *   <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-1024">
+ *     <div> <!-- First column -->
+ *       …
+ *     </div>
+ *     <div> <!-- Second column -->
+ *       …
+ *     </div>
+ *   </div>
  * 
  * The columns are stacked with the first column above and the second below
  * and so forth. By using the class `kntnt-columns-stack-reverse-1024` instead,
@@ -304,7 +319,7 @@ hr + figure.alignright + * {
  * The classes `kntnt-columns-stack-normal-768` and
  * `kntnt-columns-stack-reverse-768` works the same but for widths lessthan 768 px.
  *
- * An example:
+ * Example:
  *
  *   <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-768">
  *     <div>
@@ -331,7 +346,6 @@ hr + figure.alignright + * {
  *       <div>I</div>      
  *     </div>
  *   </div> 
- *
  */
 
 
@@ -352,7 +366,11 @@ hr + figure.alignright + * {
 [class*="kntnt-columns"] > * {
   flex-grow: 0;
   flex-shrink: 0;
-  outline: 1px solid yellow;
+}
+
+[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > ol,
+[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > ul {
+  list-style-position: outside;
 }
 
 
@@ -479,11 +497,6 @@ hr + figure.alignright + * {
   margin: 0;
   padding: 0.5em;
   box-sizing: border-box;
-}
-
-[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > ol,
-[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > ul {
-  list-style-position: inside;
 }
 
 
