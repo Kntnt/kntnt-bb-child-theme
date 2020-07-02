@@ -219,32 +219,20 @@ hr + figure.alignright + * {
 
 /* Another way to create columns */
 
-/* Outer container form a row. */
+/* Row of columns */
 
-.kntnt-columns {
+[class*="kntnt-columns"] {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
+  width: 100%;
 }
 
-.kntnt-columns:not(.kntnt-columns-no-gutter):not(:first-child):not(:last-child) {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
-/* Inner container form a column. */
-
-.kntnt-columns > * {
-  flex-grow: 0;
-  flex-shrink: 0;
-}
-
-.kntnt-columns:not(.kntnt-columns-no-gutter):not(:first-child):not(:last-child) > * {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+[class*="kntnt-columns"]:not(.kntnt-columns-no-padding) > :not([class*="kntnt-columns"]) {
+  padding: 0.5em;
 }
 
 
@@ -362,6 +350,56 @@ hr + figure.alignright + * {
 
 .kntnt-columns-25-25-25-25 > * {
   flex-basis: 25%;
+}
+
+
+/* Helper classes that "undo" padding */
+
+.kntnt-columns-undo-padding {
+  margin: -0.5em;
+}
+
+.kntnt-columns-undo-padding-top {
+  margin-top: -0.5em;
+}
+
+.kntnt-columns-undo-padding-right {
+  margin-right: -0.5em;
+}
+
+.kntnt-columns-undo-padding-bottom {
+  margin-bottom: -0.5em;
+}
+
+.kntnt-columns-undo-padding-left {
+  margin-left: -0.5em;
+}
+
+
+/* Responsivity */
+
+@media (max-width: 767px) {
+  
+  .kntnt-columns-stack-normal-768 {
+    flex-direction: column;
+  }
+
+  .kntnt-columns-stack-reverse-768 {
+    flex-direction: column-reverse;
+  }
+
+}
+
+@media (max-width: 1023px) {
+  
+  .kntnt-columns-stack-normal-1024 {
+    flex-direction: column;
+  }
+
+  .kntnt-columns-stack-reverse-1024 {
+    flex-direction: column-reverse;
+  }
+
 }
 
 
