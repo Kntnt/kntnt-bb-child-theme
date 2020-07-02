@@ -219,16 +219,17 @@ hr + figure.alignright + * {
 
 /* Alternative way to create columns.
  *
- * Start by creating a row. Use a `kntnt-columns-…` class to identify it as
- * a row and how many columns it should have.
+ * Start by making an element into a row by ading the class `kntnt-columns`
+ * floolwoed by one of the `kntnt-columns-…` classes that identifies how many
+ *columns the row should have:;
  *
- *   <div class="kntnt-columns-50-50">
+ *   <div class="kntnt-columns kntnt-columns-50-50">
  *     …
  *   </div>
  *
  * Create the required number of columns:
  *
- *   <div class="kntnt-columns-25-25-50">
+ *   <div class="kntnt-columns kntnt-columns-25-25-50">
  *     <div> <!-- First column -->
  *       …
  *     </div>
@@ -242,7 +243,7 @@ hr + figure.alignright + * {
  *
  * Finally, create desired number of cells in each column:
  *
- *   <div class="kntnt-columns-25-25-50">
+ *   <div class="kntnt-columns kntnt-columns-25-25-50">
  *     <div> <!-- First column -->
  *       <div>…</div> <!-- First cell of first column -->
  *       <div>…</div> <!-- Second cell of first column -->
@@ -259,34 +260,34 @@ hr + figure.alignright + * {
  *
  * Notice that other elements than <div> can be used. Example:
  *
- *   <div class="kntnt-columns-50-50">
- *     <ul>
- *       <li>List item 1 in column 1</li>
- *       <li>List item 2 in column 1</li>
- *     </ul>
- *     <ul>
- *       <li>List item 1 in column 2</li>
- *       <li>List item 2 in column 2</li>
- *     </ul>
+ *   <div class="kntnt-columns kntnt-columns-50-50">
+ *     <div>
+ *       <p>List item 1 in column 1</p>
+ *       <p>List item 2 in column 1</p>
+ *     </div>
+ *     <div>
+ *       <p>List item 1 in column 2</p>
+ *       <p>List item 2 in column 2</p>
+ *     </div>
  *   </div>
- *
  *
  * By default, the cells have 0.5em padding, and the objetcs put in them
  * get 0 margin and border-box sizing. Moreover, if lists are used as
- * colunms (as ine the example above), outside list style position is applied.
- * This is to ensure a consisent look in most cases. However, it is possible
- * to prevnt this, leaving everything "as is", by adding the class
- * `kntnt-columns-no-gutter` on the row:
+ * colunms (as in the example above), outside list style position is applied.
+ * All this is to ensure a consisent look in most cases.
  *
- *   <div class="kntnt-columns-50-50 kntnt-columns-no-gutter">
+ * By adding the class `kntnt-columns-no-gutter` on a column or a row,
+ * this default behaviour is stopped for the column or row, respectively.
+ *
+ *   <div class="kntnt-columns kntnt-columns-50-50 kntnt-columns-no-gutter">
  *     …
  *   </div>
  *
  * It's possible to add rows in columns like this:
  *
- *   <div class="kntnt-columns-50-50">
+ *   <div class="kntnt-columns kntnt-columns-50-50">
  *     <div> <!-- First column -->
- *       <div class="kntnt-columns-50-50">
+ *       <div class="kntnt-columns kntnt-columns-50-50">
  *         <div> <!-- First subcolumn -->
  *           …
  *         </div>
@@ -303,7 +304,7 @@ hr + figure.alignright + * {
  * The class `kntnt-columns-stack-normal-1024` makes columns stack on
  * top of each other if the wide is smaller than 1024 px:
  * 
- *   <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-1024">
+ *   <div class="kntnt-columns kntnt-columns-50-50 kntnt-columns-stack-normal-1024">
  *     <div> <!-- First column -->
  *       …
  *     </div>
@@ -321,9 +322,9 @@ hr + figure.alignright + * {
  *
  * Example:
  *
- *   <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-768">
+ *   <div class="kntnt-columns kntnt-columns-50-50 kntnt-columns-stack-normal-768">
  *     <div>
- *       <div class="kntnt-columns-50-50">
+ *       <div class="kntnt-columns kntnt-columns-50-50">
  *         <div>
  *           <p>A</p>
  *         </div>
@@ -340,7 +341,7 @@ hr + figure.alignright + * {
  *       <div>G</div>      
  *     </div>
  *   </div>
- *   <div class="kntnt-columns-100">
+ *   <div class="kntnt-columns kntnt-columns-100">
  *     <div>
  *       <div>H</div>
  *       <div>I</div>      
@@ -351,7 +352,7 @@ hr + figure.alignright + * {
 
 /* Outer container form a row of columns */
 
-[class*="kntnt-columns"] {
+.kntnt-columns {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -363,13 +364,13 @@ hr + figure.alignright + * {
 
 /* Middle container form a column of elements. */
 
-[class*="kntnt-columns"] > * {
+.kntnt-columns > * {
   flex-grow: 0;
   flex-shrink: 0;
 }
 
-[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > ol,
-[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > ul {
+.kntnt-columns:not(.kntnt-columns-no-gutter) > ol,
+.kntnt-columns:not(.kntnt-columns-no-gutter) > ul {
   list-style-position: outside;
 }
 
@@ -493,7 +494,7 @@ hr + figure.alignright + * {
 
 /* Inner container form elemens */
 
-[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > :not([class*="kntnt-columns"]) {
+.kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(.kntnt-columns) {
   margin: 0;
   padding: 0.5em;
   box-sizing: border-box;
