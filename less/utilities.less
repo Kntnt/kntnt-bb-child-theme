@@ -217,22 +217,142 @@ hr + figure.alignright + * {
 }
 
 
-/* Another way to create columns */
+/* Alternative way to create columns.
+ *
+ * Start by creating a row. Use a `kntnt-columns-…` class to identify it as
+ * a row and how many columns it should have.
+ *
+ *  <div class="kntnt-columns-50-50">
+ *    …
+ *  </div>
+ *
+ * Create the required number of columns:
+ *
+ *  <div class="kntnt-columns-25-25-50">
+ *    <div> <!-- First column -->
+ *      …
+ *    </div>
+ *    <div> <!-- Second column -->
+ *      …
+ *    </div>
+ *    <div> <!-- Third column -->
+ *      …
+ *    </div>
+ *  </div>
+ *
+ * Finally, create desired number of cells in each column:
+ *
+ *  <div class="kntnt-columns-25-25-50">
+ *    <div> <!-- First column -->
+ *      <div>…</div> <!-- First cell of first column -->
+ *      <div>…</div> <!-- Second cell of first column -->
+ *      …
+ *      <div>…</div> <!-- Last cell of first column -->
+ *    </div>
+ *    <div> <!-- Second column -->
+ *      …
+ *    </div>
+ *    <div> <!-- Third column -->
+ *      …
+ *    </div>
+ *  </div>
+ *
+ * By default, the cells have 0.5em padding, and the objetcs put in them
+ * get 0 margin and border-box sizing. Lists put in cells also get inside
+ * list style position. All of this to ensure a consisent look in most cases.
+ * However, it is possible to prevnt this, leaving everything "as is", by
+ * adding the class `kntnt-columns-no-gutter` on he row:
+ *
+ *  <div class="kntnt-columns-50-50 kntnt-columns-no-gutter">
+ *    …
+ *  </div>
+ *
+ * It's possible to add rows in columns like this:
+ *
+ *  <div class="kntnt-columns-50-50">
+ *    <div> <!-- First column -->
+ *      <div class="kntnt-columns-50-50">
+ *        <div> <!-- First subcolumn -->
+ *          …
+ *        </div>
+ *        <div> <!-- Second subcolumn -->
+ *          …
+ *        </div>
+ *      </div>
+ *    </div>
+ *    <div> <!-- Second column -->
+ *      …
+ *    </div>
+ *  </div>
+ *
+ * The class `kntnt-columns-stack-normal-1024` makes columns stack on
+ * top of each other if the wide is smaller than 1024 px:
+ * 
+ *  <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-1024">
+ *    <div> <!-- First column -->
+ *      …
+ *    </div>
+ *    <div> <!-- Second column -->
+ *      …
+ *    </div>
+ *  </div>
+ * 
+ * The columns are stacked with the first column above and the second below
+ * and so forth. By using the class `kntnt-columns-stack-reverse-1024` instead,
+ * the stack order is reversed.
+ *
+ * The classes `kntnt-columns-stack-normal-768` and
+ * `kntnt-columns-stack-reverse-768` works the same but for widths lessthan 768 px.
+ *
+ * An example:
+ *
+ *   <div class="kntnt-columns-50-50 kntnt-columns-stack-normal-768">
+ *     <div>
+ *       <div class="kntnt-columns-50-50">
+ *         <div>
+ *           <p>A</p>
+ *         </div>
+ *         <div>
+ *           <p>B</p>
+ *         </div>
+ *       </div>
+ *       <p>C</p>
+ *       <p>D</p>
+ *     </div>
+ *     <div>
+ *       <div>E</div>
+ *       <div>F</div>
+ *       <div>G</div>      
+ *     </div>
+ *   </div>
+ *   <div class="kntnt-columns-100">
+ *     <div>
+ *       <div>H</div>
+ *       <div>I</div>      
+ *     </div>
+ *   </div> 
+ *
+ */
 
-/* Row of columns */
+
+/* Outer container form a row of columns */
 
 [class*="kntnt-columns"] {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
-  width: 100%;
 }
 
-[class*="kntnt-columns"]:not(.kntnt-columns-no-padding) > :not([class*="kntnt-columns"]) {
-  padding: 0.5em;
+
+/* Middle container form a column of elements. */
+
+[class*="kntnt-columns"] > * {
+  flex-grow: 0;
+  flex-shrink: 0;
+  outline: 1px solid yellow;
 }
 
 
@@ -353,33 +473,24 @@ hr + figure.alignright + * {
 }
 
 
-/* Helper classes that "undo" padding */
+/* Inner container form elemens */
 
-.kntnt-columns-undo-padding {
-  margin: -0.5em;
+[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > :not([class*="kntnt-columns"]) {
+  margin: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
 }
 
-.kntnt-columns-undo-padding-top {
-  margin-top: -0.5em;
-}
-
-.kntnt-columns-undo-padding-right {
-  margin-right: -0.5em;
-}
-
-.kntnt-columns-undo-padding-bottom {
-  margin-bottom: -0.5em;
-}
-
-.kntnt-columns-undo-padding-left {
-  margin-left: -0.5em;
+[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > ol,
+[class*="kntnt-columns"]:not(.kntnt-columns-no-gutter) > * > ul {
+  list-style-position: inside;
 }
 
 
 /* Responsivity */
 
 @media (max-width: 767px) {
-  
+
   .kntnt-columns-stack-normal-768 {
     flex-direction: column;
   }
@@ -391,7 +502,7 @@ hr + figure.alignright + * {
 }
 
 @media (max-width: 1023px) {
-  
+
   .kntnt-columns-stack-normal-1024 {
     flex-direction: column;
   }
