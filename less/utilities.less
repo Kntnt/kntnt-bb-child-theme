@@ -500,19 +500,19 @@ hr + figure.alignright + * {
 
 .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(.kntnt-columns) {
   display: block;
+  box-sizing: border-box;
   margin: 0;
   padding: 0.5em;
-  box-sizing: border-box;
 }
 
 .kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left > :not(input):not(.kntnt-columns),
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns)
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns)
 {
   padding-left: 0;
 }
 
 .kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right > :not(input):not(.kntnt-columns),
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns)
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns)
 {
   padding-right: 0;
 }
@@ -522,24 +522,52 @@ hr + figure.alignright + * {
 
 @media (max-width: 767px) {
 
-  .kntnt-columns-stack-normal-768 {
+  .kntnt-columns.kntnt-columns-stack-normal-768 {
     flex-direction: column;
   }
 
-  .kntnt-columns-stack-reverse-768 {
+  .kntnt-columns.kntnt-columns-stack-reverse-768 {
     flex-direction: column-reverse;
+  }
+
+  .kntnt-columns.kntnt-columns-stack-normal-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-normal-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns) {
+    padding-left: 0;  
+  }
+
+  .kntnt-columns.kntnt-columns-stack-normal-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-normal-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-768:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns) {
+    padding-right: 0;
   }
 
 }
 
 @media (max-width: 1023px) {
 
-  .kntnt-columns-stack-normal-1024 {
+  .kntnt-columns.kntnt-columns-stack-normal-1024 {
     flex-direction: column;
   }
 
-  .kntnt-columns-stack-reverse-1024 {
+  .kntnt-columns.kntnt-columns-stack-reverse-1024 {
     flex-direction: column-reverse;
+  }
+
+  .kntnt-columns.kntnt-columns-stack-normal-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-normal-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns) {
+    padding-left: 0;  
+  }
+
+  .kntnt-columns.kntnt-columns-stack-normal-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-normal-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+  .kntnt-columns.kntnt-columns-stack-reverse-1024:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns) {
+    padding-right: 0;
   }
 
 }
