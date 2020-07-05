@@ -283,6 +283,10 @@ hr + figure.alignright + * {
  *     …
  *   </div>
  *
+ * By adding `kntnt-columns-no-gutter-left` and `kntnt-columns-no-gutter-right`
+ * on a column, the left and right padding, respectively, is removed for all
+ * objects in that column.
+ *
  * It's possible to add rows in columns like this:
  *
  *   <div class="kntnt-columns kntnt-columns-50-50">
@@ -499,6 +503,18 @@ hr + figure.alignright + * {
   margin: 0;
   padding: 0.5em;
   box-sizing: border-box;
+}
+
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left > :not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(.kntnt-columns)
+{
+  padding-left: 0;
+}
+
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right > :not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(.kntnt-columns)
+{
+  padding-right: 0;
 }
 
 
