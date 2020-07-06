@@ -258,35 +258,6 @@ hr + figure.alignright + * {
  *     </div>
  *   </div>
  *
- * Notice that other elements than <div> can be used. Example:
- *
- *   <div class="kntnt-columns kntnt-columns-50-50">
- *     <div>
- *       <p>List item 1 in column 1</p>
- *       <p>List item 2 in column 1</p>
- *     </div>
- *     <div>
- *       <p>List item 1 in column 2</p>
- *       <p>List item 2 in column 2</p>
- *     </div>
- *   </div>
- *
- * By default, with exception for <input>, any element put in columns gets
- * 0.5 em padding, 0 margin, border-box sizing and block display. If lists
- * are used as a colunm (as in the example above), outside list style
- * position is applied. All this is to ensure a consisent look in most cases.
- *
- * By adding the class `kntnt-columns-no-gutter` on a column or a row,
- * this default behaviour is stopped for the column or row, respectively.
- *
- *   <div class="kntnt-columns kntnt-columns-50-50 kntnt-columns-no-gutter">
- *     …
- *   </div>
- *
- * By adding `kntnt-columns-no-gutter-left` or `kntnt-columns-no-gutter-right`
- * on a column, the left or right padding, respectively, is removed for all
- * objects in that column.
- *
  * It's possible to add rows in columns like this:
  *
  *   <div class="kntnt-columns kntnt-columns-50-50">
@@ -323,6 +294,25 @@ hr + figure.alignright + * {
  *
  * The classes `kntnt-columns-stack-normal-768` and
  * `kntnt-columns-stack-reverse-768` works the same but for widths lessthan 768 px.
+ *
+ * By default, with exception for <input>, any element put in columns gets
+ * 0.5 em padding, 0 margin, border-box sizing and block display. Moreover, list
+ * items get its bullet or number placed inside the bounding box.
+ *
+ * By adding the class `kntnt-columns-no-gutter` on a column or a row,
+ * this default behaviour is stopped for the column or row, respectively.
+ *
+ *   <div class="kntnt-columns kntnt-columns-50-50 kntnt-columns-no-gutter">
+ *     …
+ *   </div>
+ *
+ * By adding `kntnt-columns-no-gutter-left` or `kntnt-columns-no-gutter-right`
+ * on a column, the left or right padding, respectively, is removed for all
+ * objects in that column.
+ *
+ * By adding `kntnt-columns-no-gutter-top` or `kntnt-columns-no-gutter-bottom`
+ * on a row, the top or bottom padding, respectively, is removed for all
+ * objects in columns of that row..
  *
  * Example:
  *
@@ -371,11 +361,6 @@ hr + figure.alignright + * {
 .kntnt-columns > * {
   flex-grow: 0;
   flex-shrink: 0;
-}
-
-.kntnt-columns:not(.kntnt-columns-no-gutter) > ol,
-.kntnt-columns:not(.kntnt-columns-no-gutter) > ul {
-  list-style-position: outside;
 }
 
 
@@ -505,15 +490,28 @@ hr + figure.alignright + * {
   padding: 0.5em;
 }
 
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left > :not(input):not(.kntnt-columns),
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-left .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns)
-{
+.kntnt-columns ul > li,
+.kntnt-columns ol > li {
+  list-style-position: inside;
+}
+
+.kntnt-columns:not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-top > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-top > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns) {
+  padding-top: 0;
+}
+
+.kntnt-columns:not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-bottom > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-bottom > :not(.kntnt-columns-no-gutter) .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter) > :not(input):not(.kntnt-columns) {
+  padding-bottom: 0;
+}
+
+.kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-left > :not(input):not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-left .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):first-child > :not(input):not(.kntnt-columns) {
   padding-left: 0;
 }
 
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right > :not(input):not(.kntnt-columns),
-.kntnt-columns:not(.kntnt-columns-no-gutter) > .kntnt-columns-no-gutter-right .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns)
-{
+.kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-right > :not(input):not(.kntnt-columns),
+.kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter).kntnt-columns-no-gutter-right .kntnt-columns:not(.kntnt-columns-no-gutter) > :not(.kntnt-columns-no-gutter):last-child > :not(input):not(.kntnt-columns) {
   padding-right: 0;
 }
 
@@ -653,6 +651,14 @@ hr + figure.alignright + * {
 
 
 /* Miscellaneous utilities */
+
+.margin-top-1em {
+  margin-top: 1em;
+}
+
+.p-margin-bottom-1em {
+  margin-bottom: 1em;
+}
 
 .center,
 .center-horizontally  {
